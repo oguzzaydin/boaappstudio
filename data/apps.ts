@@ -49,7 +49,7 @@ export const apps: AppData[] = [
       "/screenshots/fake-incoming-call/5.png"
     ],
     storeLinks: {
-      googlePlay: "#",
+      googlePlay: "https://play.google.com/store/apps/details?id=com.boaapps.fakeincomingcall",
       appStore: "#"
     },
     monetization: "Free • Ad-supported",
