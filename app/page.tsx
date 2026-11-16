@@ -5,8 +5,8 @@ import { faqData } from "@/data/faq";
 import { faqNode, organizationJsonLd, pageMetadata, websiteJsonLd } from "@/lib/seo";
 
 export const metadata = pageMetadata({
-  title: "Boa App Studio – Privacy-Focused Mobile Apps",
-  description: "Transparent, privacy-focused mobile apps from Boa App Studio, including Fake Incoming Call - Prank.",
+  title: "Boa Apps Studio – Privacy-Focused Mobile Apps",
+  description: "Transparent, privacy-focused mobile apps from Boa Apps Studio, including Fake Incoming Call - Prank.",
   path: "/",
   absoluteTitle: true,
 });

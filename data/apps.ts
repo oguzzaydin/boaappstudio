@@ -19,11 +19,13 @@ export interface AppData {
   version: string;
   icon: string;
   screenshots: string[];
+  screenshotAlts?: string[];
   storeLinks: {
     googlePlay?: string;
     appStore?: string;
   };
   monetization: string;
+  adNote?: string;
   privacyPolicy: string;
   features: string[];
   lastUpdated: string;
@@ -42,7 +44,7 @@ export const apps: AppData[] = [
     name: "Fake Incoming Call - Prank",
     tagline: "Simulate incoming calls to escape awkward situations.",
     description:
-      "Fake Incoming Call - Prank lets you simulate realistic incoming calls with customizable caller name, ringtone, and delay. Designed purely for entertainment purposes to help you exit awkward or boring situations in a fun way.",
+      "Fake Incoming Call - Prank lets you simulate realistic incoming calls with a customizable caller name, ringtone, and delay. You can cancel a scheduled call before it rings, and ads are not shown during a call. Designed purely for entertainment purposes to help you exit awkward or boring situations in a fun way.",
     version: "1.0.0",
     icon: "/icons/fake-incoming-call.png",
     screenshots: [
@@ -50,19 +52,34 @@ export const apps: AppData[] = [
       "/screenshots/fake-incoming-call/2.webp",
       "/screenshots/fake-incoming-call/3.webp",
       "/screenshots/fake-incoming-call/4.webp",
-      "/screenshots/fake-incoming-call/5.webp"
+      "/screenshots/fake-incoming-call/5.webp",
+      "/screenshots/fake-incoming-call/6.webp",
+      "/screenshots/fake-incoming-call/7.webp",
+      "/screenshots/fake-incoming-call/8.webp"
+    ],
+    screenshotAlts: [
+      "Looks like a real call. Incoming call screen for a caller named Mom.",
+      "Fake call in one tap. Call setup with caller Mom, Call now, a quick timer, and schedule later.",
+      "10+ call screen styles. Call screen theme choices, including free layouts.",
+      "Voice and script after you answer. In-call screen for a caller named Boss.",
+      "Any caller, any name. Library of caller scenarios such as Mom, Boss, and Courier.",
+      "Schedule it. Cancel anytime. Schedule a call and cancel it before it rings.",
+      "Start from your home screen. Settings for a script after you answer and a home screen shortcut.",
+      "No ads during your call. Call setup shown with no ad on the call screen."
     ],
     storeLinks: {
       googlePlay: "https://play.google.com/store/apps/details?id=com.boaapps.fakeincomingcall",
       appStore: "#"
     },
     monetization: "Free • Ad-supported",
+    adNote: "Ads are not shown during a call.",
     privacyPolicy: "/privacy-policy/fake-incoming-call-prank",
     features: [
       "Fake incoming call simulation",
       "Custom caller name and number",
       "Selectable ringtone",
-      "Scheduled call delay",
+      "Schedule a call and cancel before it rings",
+      "No ads during a call",
       "Works fully offline",
       "For entertainment purposes only"
     ],
@@ -79,7 +96,7 @@ export const apps: AppData[] = [
       {
         question: "Is the app free?",
         answer:
-          "Yes. The app is free and ad-supported. It may display ads from third-party partners such as Google AdMob."
+          "Yes. The app is free and ad-supported. It may display ads from third-party partners such as Google AdMob. Ads are not shown during a call."
       },
       {
         question: "Does the app access my contacts or location?",
@@ -89,7 +106,7 @@ export const apps: AppData[] = [
       {
         question: "Can I set the caller name and a timer?",
         answer:
-          "Yes. You can set a custom caller name and number, choose a ringtone, and schedule a call delay."
+          "Yes. You can set a custom caller name and number, choose a ringtone, and schedule a call. You can cancel it before it rings."
       },
       {
         question: "Does the app work offline?",
@@ -124,7 +141,7 @@ export const apps: AppData[] = [
         icon: "Ad",
         title: "Advertising Data",
         description:
-          "The app may display ads provided by third-party advertising partners such as Google AdMob."
+          "The app may display ads provided by third-party advertising partners such as Google AdMob. Ads are not shown during a call."
       },
       {
         icon: "Bug",

@@ -4,7 +4,7 @@ import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata({
   title: "Apps",
-  description: "Mobile apps from Boa App Studio, including Fake Incoming Call - Prank for Android.",
+  description: "Mobile apps from Boa Apps Studio, including Fake Incoming Call - Prank for Android.",
   path: "/apps",
 });
 
@@ -22,7 +22,7 @@ export default function AppsPage() {
           Our Apps
         </h1>
         <p className="text-lg text-slate-600">
-          Browse the mobile apps published by Boa App Studio.
+          Browse the mobile apps published by Boa Apps Studio.
         </p>
       </div>
 

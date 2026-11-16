@@ -130,7 +130,7 @@ export default async function AppDetailPage({ params }: PageProps) {
                                 <h2 className="text-xl font-bold text-slate-900">App Interface</h2>
                             </div>
 
-                            <ScreenshotCarousel screenshots={app.screenshots} appName={app.name} />
+                            <ScreenshotCarousel screenshots={app.screenshots} alts={app.screenshotAlts} appName={app.name} />
 
                             <p className="mt-4 text-center text-xs text-slate-400 italic">
                                 Images represent the current version of the application on compatible devices.
@@ -177,6 +177,9 @@ export default async function AppDetailPage({ params }: PageProps) {
                             <p className="text-sm text-slate-600 leading-relaxed">
                                 We carefully select ad partners to ensure ads are non-intrusive and do not interfere with functionality.
                             </p>
+                            {app.adNote ? (
+                                <p className="mt-2 text-sm text-slate-600 leading-relaxed">{app.adNote}</p>
+                            ) : null}
                         </div>
                     </div>
 

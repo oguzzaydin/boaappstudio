@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: PageProps) {
 
     return pageMetadata({
         title: `${app.name} Terms of Service`,
-        description: `Terms of service for ${app.name}, published by Boa App Studio.`,
+        description: `Terms of service for ${app.name}, published by Boa Apps Studio.`,
         path: `/terms-of-service/${app.id}`,
     });
 }

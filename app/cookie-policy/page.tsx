@@ -5,7 +5,7 @@ import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata({
     title: "Cookie Policy",
-    description: "How Boa App Studio uses essential cookies and anonymous analytics cookies on this website.",
+    description: "How Boa Apps Studio uses essential cookies and anonymous analytics cookies on this website.",
     path: "/cookie-policy",
 });
 

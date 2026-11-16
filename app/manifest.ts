@@ -2,8 +2,8 @@ import { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
     return {
-        name: "Boa App Studio",
-        short_name: "Boa Studio",
+        name: "Boa Apps Studio",
+        short_name: "Boa Apps",
         description: "Transparent, privacy-focused tools designed for everyday productivity.",
         start_url: "/",
         display: "standalone",

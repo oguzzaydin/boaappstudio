@@ -35,7 +35,7 @@ export async function generateMetadata({ params }: PageProps) {
 
     return pageMetadata({
         title: `${app.name} Privacy Policy`,
-        description: `Privacy policy for ${app.name}, including ads, crash information, and how to contact Boa App Studio.`,
+        description: `Privacy policy for ${app.name}, including ads, crash information, and how to contact Boa Apps Studio.`,
         path: `/privacy-policy/${app.id}`,
     });
 }

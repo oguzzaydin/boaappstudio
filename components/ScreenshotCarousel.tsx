@@ -7,9 +7,14 @@ import { ChevronLeft, ChevronRight, Smartphone } from "lucide-react";
 interface ScreenshotCarouselProps {
     screenshots: string[];
     appName: string;
+    alts?: string[];
 }
 
-export default function ScreenshotCarousel({ screenshots, appName }: ScreenshotCarouselProps) {
+function altText(alts: string[] | undefined, appName: string, index: number) {
+    return alts?.[index] || `${appName} screenshot ${index + 1}`;
+}
+
+export default function ScreenshotCarousel({ screenshots, appName, alts }: ScreenshotCarouselProps) {
     const scrollContainerRef = useRef<HTMLDivElement>(null);
     const [showLeftArrow, setShowLeftArrow] = useState(false);
     const [showRightArrow, setShowRightArrow] = useState(true);
@@ -57,10 +62,10 @@ export default function ScreenshotCarousel({ screenshots, appName }: ScreenshotC
         return (
             <div className={`grid grid-cols-1 sm:grid-cols-${screenshots.length} gap-6 max-w-5xl`}>
                 {screenshots.map((src, index) => (
-                    <div key={index} className="aspect-[9/19] w-full overflow-hidden rounded-2xl bg-slate-100 border border-slate-200 shadow-sm relative group">
+                    <div key={index} className="aspect-[9/16] w-full overflow-hidden rounded-2xl bg-slate-100 border border-slate-200 shadow-sm relative group">
                         <Image
                             src={src}
-                            alt={`${appName} screenshot ${index + 1}`}
+                            alt={altText(alts, appName, index)}
                             fill
                             sizes="(min-width: 1024px) 320px, (min-width: 640px) 45vw, 90vw"
                             className="object-cover"
@@ -95,11 +100,11 @@ export default function ScreenshotCarousel({ screenshots, appName }: ScreenshotC
                 {screenshots.map((src, index) => (
                     <div
                         key={index}
-                        className="snap-center shrink-0 w-[200px] sm:w-[260px] md:w-[280px] aspect-[9/19] overflow-hidden rounded-2xl bg-slate-100 border border-slate-200 shadow-sm relative"
+                        className="snap-center shrink-0 w-[200px] sm:w-[260px] md:w-[280px] aspect-[9/16] overflow-hidden rounded-2xl bg-slate-100 border border-slate-200 shadow-sm relative"
                     >
                         <Image
                             src={src}
-                            alt={`${appName} screenshot ${index + 1}`}
+                            alt={altText(alts, appName, index)}
                             fill
                             sizes="(min-width: 768px) 280px, (min-width: 640px) 260px, 200px"
                             className="object-cover"

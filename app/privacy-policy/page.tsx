@@ -6,7 +6,7 @@ import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata({
     title: "Privacy Policy",
-    description: "Privacy policy for the Boa App Studio website, including anonymous analytics, support emails, and links to each app policy.",
+    description: "Privacy policy for the Boa Apps Studio website, including anonymous analytics, support emails, and links to each app policy.",
     path: "/privacy-policy",
 });
 

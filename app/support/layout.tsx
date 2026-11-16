@@ -3,7 +3,7 @@ import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata({
   title: "Support",
-  description: "Contact Boa App Studio for help with an app, a privacy question, or a general inquiry.",
+  description: "Contact Boa Apps Studio for help with an app, a privacy question, or a general inquiry.",
   path: "/support",
 });
 

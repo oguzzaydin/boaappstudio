@@ -35,12 +35,13 @@ export default function Footer() {
 
                     {/* Brand Section - Takes up half the width (6 cols) */}
                     <div className="md:col-span-2 lg:col-span-6 space-y-4">
-                        <div className="flex items-center gap-2 text-slate-900 font-bold text-xl">
-                            <div className="relative h-8 w-8 overflow-hidden rounded-lg">
-                                <Image src="/logo.png" alt="Boa App Studio" fill sizes="32px" className="object-cover" />
-                            </div>
-                            <span>Boa App Studio</span>
-                        </div>
+                        <Image
+                            src="/logo-wordmark.webp"
+                            alt="Boa Apps Studio"
+                            width={1600}
+                            height={350}
+                            className="h-8 w-auto"
+                        />
                         <p className="text-slate-500 text-sm leading-relaxed max-w-sm">
                             Building transparent, privacy-focused tools for everyday productivity. No hidden clauses, just great software.
                         </p>
@@ -107,7 +108,7 @@ export default function Footer() {
                 {/* Bottom Bar */}
                 <div className="border-t border-slate-100 pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
                     <p className="text-xs text-slate-400">
-                        © {new Date().getFullYear()} Boa App Studio. All rights reserved.
+                        © {new Date().getFullYear()} Boa Apps Studio. All rights reserved.
                     </p>
 
                     <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8">

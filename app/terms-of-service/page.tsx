@@ -5,7 +5,7 @@ import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata({
     title: "Terms of Service",
-    description: "Terms for using the Boa App Studio website and mobile applications.",
+    description: "Terms for using the Boa Apps Studio website and mobile applications.",
     path: "/terms-of-service",
 });
 

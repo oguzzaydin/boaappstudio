@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import type { AppData } from "@/data/apps";
 
 export const SITE_URL = "https://boaappstudio.com";
-export const SITE_NAME = "Boa App Studio";
+export const SITE_NAME = "Boa Apps Studio";
 export const TWITTER_SITE = "@boaappstudio";
 export const CONTACT_EMAIL = "contact@boaappstudio.com";
 export const OG_IMAGE = "/og-image.jpg";
@@ -90,8 +90,8 @@ export function organizationJsonLd() {
     logo: {
       "@type": "ImageObject",
       url: `${SITE_URL}/logo.png`,
-      width: 250,
-      height: 150,
+      width: 512,
+      height: 512,
     },
     sameAs: [...sameAs],
   };
