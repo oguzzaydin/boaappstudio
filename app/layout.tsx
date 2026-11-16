@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { Analytics } from "@vercel/analytics/react";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -17,13 +18,13 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://boaappstudio.com"), // Replace with actual domain
+  metadataBase: new URL("https://boaappstudio.com"),
   title: {
     default: "Boa App Studio – Privacy-Focused Mobile Apps",
     template: "%s | Boa App Studio",
   },
-  description: "Transparent, privacy-first mobile apps including prank tools and kids games.",
-  keywords: ["mobile apps", "privacy focused", "productivity tools", "clean software", "ios apps", "android apps", "prank apps", "kids games"],
+  description: "Transparent, privacy-focused mobile apps from Boa App Studio, including Fake Incoming Call - Prank.",
+  keywords: ["mobile apps", "privacy focused", "productivity tools", "clean software", "android apps", "prank apps", "Boa App Studio"],
   authors: [{ name: "Boa App Studio" }],
   creator: "Boa App Studio",
   robots: {
@@ -35,10 +36,10 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://boaappstudio.com",
     title: "Boa App Studio",
-    description: "Transparent, privacy-focused tools designed for everyday productivity.",
+    description: "Transparent, privacy-focused mobile apps from Boa App Studio, including Fake Incoming Call - Prank.",
     siteName: "Boa App Studio",
     images: [{
-      url: "/og-image.jpg", // Needs to be created or assumed
+      url: "/og-image.jpg",
       width: 1200,
       height: 630,
       alt: "Boa App Studio",
@@ -46,8 +47,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
+    site: "@boaappstudio",
     title: "Boa App Studio",
-    description: "Transparent, privacy-focused tools designed for everyday productivity.",
+    description: "Transparent, privacy-focused mobile apps from Boa App Studio, including Fake Incoming Call - Prank.",
     images: ["/og-image.jpg"],
   },
   manifest: "/manifest.json",
@@ -78,6 +80,7 @@ export default function RootLayout({
         </main>
         <Footer />
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );

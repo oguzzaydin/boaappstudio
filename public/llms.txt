@@ -1,0 +1,34 @@
+# Boa App Studio
+
+> Boa App Studio publishes transparent, privacy-focused mobile apps. This website lists each app, the store link, the privacy policy, and the terms.
+
+Apps are free and ad-supported. They do not require an account. Prank apps simulate a situation for entertainment and do not make real phone calls.
+
+## Apps
+
+- [Fake Incoming Call - Prank](https://boaappstudio.com/apps/fake-incoming-call-prank): Android entertainment app that simulates an incoming call. You can set a caller name and number, choose a ringtone, and schedule a call delay. It works offline, does not make or receive real phone calls, and does not access contacts or precise location. It is free and may show ads. Install: https://play.google.com/store/apps/details?id=com.boaapps.fakeincomingcall
+
+## Pages
+
+- [Home](https://boaappstudio.com/)
+- [Apps](https://boaappstudio.com/apps)
+- [Support](https://boaappstudio.com/support)
+- [Privacy Policy](https://boaappstudio.com/privacy-policy)
+- [Fake Incoming Call privacy policy](https://boaappstudio.com/privacy-policy/fake-incoming-call-prank)
+- [Terms of Service](https://boaappstudio.com/terms-of-service)
+- [Fake Incoming Call terms](https://boaappstudio.com/terms-of-service/fake-incoming-call-prank)
+- [Cookie Policy](https://boaappstudio.com/cookie-policy)
+- [Sitemap](https://boaappstudio.com/sitemap.xml)
+
+## Contact
+
+- General and support: contact@boaappstudio.com
+- App support: support@boaappstudio.com
+- Legal: legal@boaappstudio.com
+
+## Social
+
+- YouTube: https://www.youtube.com/@boaappsstudio
+- Instagram: https://www.instagram.com/boaappstudio
+- TikTok: https://www.tiktok.com/@boaappstudio
+- X: https://x.com/boaappstudio

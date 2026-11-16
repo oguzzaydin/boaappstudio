@@ -1,7 +1,31 @@
 import { apps } from "@/data/apps";
-import { Twitter, Linkedin, Mail, Shield, CheckCircle, Zap, Facebook, Instagram } from "lucide-react";
+import { Instagram, Youtube } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import { socialProfiles } from "@/lib/seo";
+
+function TikTokIcon({ className = "h-4 w-4" }: { className?: string }) {
+    return (
+        <svg viewBox="0 0 24 24" className={className} fill="currentColor" aria-hidden="true">
+            <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.77 1.52V6.76a4.85 4.85 0 0 1-1-.07z" />
+        </svg>
+    );
+}
+
+function XIcon({ className = "h-4 w-4" }: { className?: string }) {
+    return (
+        <svg viewBox="0 0 24 24" className={className} fill="currentColor" aria-hidden="true">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.727-8.835L1.254 2.25H8.08l4.253 5.622L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+        </svg>
+    );
+}
+
+const socialIcons = {
+    YouTube: Youtube,
+    Instagram,
+    TikTok: TikTokIcon,
+    X: XIcon,
+} as const;
 
 export default function Footer() {
     return (
@@ -13,7 +37,7 @@ export default function Footer() {
                     <div className="md:col-span-2 lg:col-span-6 space-y-4">
                         <div className="flex items-center gap-2 text-slate-900 font-bold text-xl">
                             <div className="relative h-8 w-8 overflow-hidden rounded-lg">
-                                <Image src="/logo.png" alt="Logo" fill className="object-cover" />
+                                <Image src="/logo.png" alt="Boa App Studio" fill sizes="32px" className="object-cover" />
                             </div>
                             <span>Boa App Studio</span>
                         </div>
@@ -21,26 +45,21 @@ export default function Footer() {
                             Building transparent, privacy-focused tools for everyday productivity. No hidden clauses, just great software.
                         </p>
                         <div className="flex items-center gap-4 pt-2">
-                            {/* X (Twitter) */}
-                            <a href="#" className="h-8 w-8 flex items-center justify-center rounded-full bg-slate-50 text-slate-400 hover:bg-slate-100 hover:text-slate-900 transition-colors">
-                                <Twitter className="h-4 w-4" />
-                            </a>
-                            {/* Instagram */}
-                            <a href="#" className="h-8 w-8 flex items-center justify-center rounded-full bg-slate-50 text-slate-400 hover:bg-slate-100 hover:text-pink-600 transition-colors">
-                                <Instagram className="h-4 w-4" />
-                            </a>
-                            {/* LinkedIn */}
-                            <a href="#" className="h-8 w-8 flex items-center justify-center rounded-full bg-slate-50 text-slate-400 hover:bg-slate-100 hover:text-blue-700 transition-colors">
-                                <Linkedin className="h-4 w-4" />
-                            </a>
-                            {/* Facebook */}
-                            <a href="#" className="h-8 w-8 flex items-center justify-center rounded-full bg-slate-50 text-slate-400 hover:bg-slate-100 hover:text-blue-600 transition-colors">
-                                <Facebook className="h-4 w-4" />
-                            </a>
-                            {/* Reddit */}
-                            <a href="#" className="h-8 w-8 flex items-center justify-center rounded-full bg-slate-50 text-slate-400 hover:bg-slate-100 hover:text-orange-600 transition-colors" aria-label="Reddit">
-                                <Zap className="h-4 w-4" />
-                            </a>
+                            {socialProfiles.map((profile) => {
+                                const Icon = socialIcons[profile.name];
+                                return (
+                                    <a
+                                        key={profile.name}
+                                        href={profile.href}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        aria-label={profile.name}
+                                        className="h-8 w-8 flex items-center justify-center rounded-full bg-slate-50 text-slate-400 hover:bg-slate-100 hover:text-slate-900 transition-colors"
+                                    >
+                                        <Icon className="h-4 w-4" />
+                                    </a>
+                                );
+                            })}
                         </div>
                     </div>
 
@@ -57,6 +76,11 @@ export default function Footer() {
                                     </Link>
                                 </li>
                             ))}
+                            <li>
+                                <Link href="/apps" className="text-sm text-slate-500 hover:text-blue-600 transition-colors block">
+                                    All apps
+                                </Link>
+                            </li>
                         </ul>
                     </div>
 

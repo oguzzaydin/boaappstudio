@@ -4,7 +4,17 @@ import { useState } from "react";
 import { ChevronDown, HelpCircle } from "lucide-react";
 import { faqData } from "@/data/faq";
 
-export default function FAQ() {
+interface FAQProps {
+    items?: { question: string; answer: string }[];
+    heading?: string;
+    intro?: string;
+}
+
+export default function FAQ({
+    items = faqData,
+    heading = "Frequently Asked Questions",
+    intro = "Quick answers about our apps, privacy approach, and monetization.",
+}: FAQProps) {
     const [openIndex, setOpenIndex] = useState<number | null>(null);
 
     const toggleAccordion = (index: number) => {
@@ -18,14 +28,14 @@ export default function FAQ() {
                     <div className="inline-flex items-center justify-center p-2 bg-blue-50 rounded-xl mb-4 text-blue-600">
                         <HelpCircle className="w-6 h-6" />
                     </div>
-                    <h2 className="text-3xl font-bold text-slate-900 mb-3">Frequently Asked Questions</h2>
+                    <h2 className="text-3xl font-bold text-slate-900 mb-3">{heading}</h2>
                     <p className="text-slate-500 text-lg">
-                        Quick answers about our apps, privacy approach, and monetization.
+                        {intro}
                     </p>
                 </div>
 
                 <div className="space-y-4">
-                    {faqData.map((item, index) => (
+                    {items.map((item, index) => (
                         <div
                             key={index}
                             className={`bg-white rounded-2xl border transition-all duration-200 overflow-hidden ${openIndex === index

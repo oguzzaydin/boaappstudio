@@ -1,9 +1,23 @@
 
-import { FileText, Scale } from "lucide-react";
+import { Scale } from "lucide-react";
+import JsonLd from "@/components/JsonLd";
+import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
+
+export const metadata = pageMetadata({
+    title: "Terms of Service",
+    description: "Terms for using the Boa App Studio website and mobile applications.",
+    path: "/terms-of-service",
+});
 
 export default function GeneralTermsOfService() {
     return (
         <div className="min-h-screen bg-white">
+            <JsonLd
+                data={breadcrumbJsonLd([
+                    { name: "Home", path: "/" },
+                    { name: "Terms of Service", path: "/terms-of-service" },
+                ])}
+            />
             {/* Header */}
             <div className="bg-slate-50 border-b border-slate-200">
                 <div className="container mx-auto px-4 py-16 sm:py-24">
@@ -51,7 +65,7 @@ export default function GeneralTermsOfService() {
                     <section className="mb-10">
                         <h2 className="text-xl font-bold text-slate-900 mb-4">3. Disclaimer</h2>
                         <p>
-                            The materials on Boa App Studio's website and applications are provided on an 'as is' basis. Boa App Studio makes no warranties, expressed or implied, and hereby disclaims and negates all other warranties including, without limitation, implied warranties or conditions of merchantability, fitness for a particular purpose, or non-infringement of intellectual property.
+                            The materials on Boa App Studio&apos;s website and applications are provided on an &apos;as is&apos; basis. Boa App Studio makes no warranties, expressed or implied, and hereby disclaims and negates all other warranties including, without limitation, implied warranties or conditions of merchantability, fitness for a particular purpose, or non-infringement of intellectual property.
                         </p>
                     </section>
 

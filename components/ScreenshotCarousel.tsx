@@ -62,6 +62,7 @@ export default function ScreenshotCarousel({ screenshots, appName }: ScreenshotC
                             src={src}
                             alt={`${appName} screenshot ${index + 1}`}
                             fill
+                            sizes="(min-width: 1024px) 320px, (min-width: 640px) 45vw, 90vw"
                             className="object-cover"
                         />
                     </div>
@@ -100,6 +101,7 @@ export default function ScreenshotCarousel({ screenshots, appName }: ScreenshotC
                             src={src}
                             alt={`${appName} screenshot ${index + 1}`}
                             fill
+                            sizes="(min-width: 768px) 280px, (min-width: 640px) 260px, 200px"
                             className="object-cover"
                         />
                     </div>

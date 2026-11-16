@@ -1,7 +1,9 @@
 import { apps } from "@/data/apps";
-import { ArrowLeft, CheckCircle, Smartphone, Info, Mail, AlertCircle, FileText } from "lucide-react";
+import { ArrowLeft, Info, Mail } from "lucide-react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import JsonLd from "@/components/JsonLd";
+import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 
 export async function generateStaticParams() {
     return apps.map((app) => ({
@@ -11,6 +13,21 @@ export async function generateStaticParams() {
 
 interface PageProps {
     params: Promise<{ slug: string }>;
+}
+
+export async function generateMetadata({ params }: PageProps) {
+    const { slug } = await params;
+    const app = apps.find((a) => a.id === slug);
+
+    if (!app) {
+        return { title: "Terms of Service" };
+    }
+
+    return pageMetadata({
+        title: `${app.name} Terms of Service`,
+        description: `Terms of service for ${app.name}, published by Boa App Studio.`,
+        path: `/terms-of-service/${app.id}`,
+    });
 }
 
 export default async function TermsOfServicePage({ params }: PageProps) {
@@ -25,6 +42,13 @@ export default async function TermsOfServicePage({ params }: PageProps) {
 
     return (
         <div className="min-h-screen bg-slate-50 pb-20">
+            <JsonLd
+                data={breadcrumbJsonLd([
+                    { name: "Home", path: "/" },
+                    { name: app.name, path: `/apps/${app.id}` },
+                    { name: "Terms of Service", path: `/terms-of-service/${app.id}` },
+                ])}
+            />
             {/* Top Navigation */}
             <div className="bg-white border-b border-slate-200">
                 <div className="container mx-auto px-4 py-4 sm:px-6 lg:px-8">
@@ -80,7 +104,7 @@ export default async function TermsOfServicePage({ params }: PageProps) {
                         <section id="acceptance-of-terms" className="scroll-mt-24">
                             <h2 className="text-2xl font-bold text-slate-900 mb-4">1. Acceptance of Terms</h2>
                             <p className="text-slate-600 leading-relaxed mb-4">
-                                Boa App Studio ("we", "us", or "our") operates the mobile application <strong>{app.name}</strong> (the "Service").
+                                Boa App Studio (&quot;we&quot;, &quot;us&quot;, or &quot;our&quot;) operates the mobile application <strong>{app.name}</strong> (the &quot;Service&quot;).
                             </p>
                             <p className="text-slate-600 leading-relaxed">
                                 By accessing or using the Service, you confirm that you accept these Terms of Service and agree to comply with them. If you do not agree to these terms, you must not use our Service.
@@ -142,7 +166,7 @@ export default async function TermsOfServicePage({ params }: PageProps) {
                         <section id="disclaimer" className="scroll-mt-24">
                             <h2 className="text-2xl font-bold text-slate-900 mb-4">5. Disclaimer</h2>
                             <p className="text-slate-600 leading-relaxed mb-4">
-                                The materials on Boa App Studio's services are provided on an "as is" basis. We make no warranties, expressed or implied, and hereby disclaim and negate all other warranties including, without limitation, implied warranties or conditions of merchantability, fitness for a particular purpose, or non-infringement of intellectual property or other violation of rights.
+                                The materials on Boa App Studio&apos;s services are provided on an &quot;as is&quot; basis. We make no warranties, expressed or implied, and hereby disclaim and negate all other warranties including, without limitation, implied warranties or conditions of merchantability, fitness for a particular purpose, or non-infringement of intellectual property or other violation of rights.
                             </p>
                             <p className="text-slate-600 leading-relaxed">
                                 Further, we do not warrant or make any representations concerning the accuracy, likely results, or reliability of the use of the materials on our website or otherwise relating to such materials or on any sites linked to this site.

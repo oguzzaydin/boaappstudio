@@ -5,9 +5,10 @@ import { ArrowRight, Zap } from "lucide-react";
 
 interface AppCardProps {
     app: AppData;
+    priority?: boolean;
 }
 
-export default function AppCard({ app }: AppCardProps) {
+export default function AppCard({ app, priority = false }: AppCardProps) {
     return (
         <div className="group relative flex flex-col rounded-2xl border border-slate-200 bg-white p-6 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
             <div className="mb-5 flex items-start justify-between">
@@ -17,6 +18,8 @@ export default function AppCard({ app }: AppCardProps) {
                             src={app.icon}
                             alt={`${app.name} icon`}
                             fill
+                            priority={priority}
+                            sizes="56px"
                             className="object-cover"
                         />
                     ) : (
@@ -52,6 +55,23 @@ export default function AppCard({ app }: AppCardProps) {
                     </span>
                 ))}
             </div>
+
+            {app.storeLinks.googlePlay && app.storeLinks.googlePlay !== "#" && (
+                <a
+                    href={app.storeLinks.googlePlay}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mb-6 inline-flex transition-opacity hover:opacity-80"
+                >
+                    <Image
+                        src="/badges/google-play.svg"
+                        alt="Get it on Google Play"
+                        width={140}
+                        height={42}
+                        className="h-[42px] w-auto"
+                    />
+                </a>
+            )}
 
             <div className="mt-auto flex items-center justify-between border-t border-slate-100 pt-5">
                 <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider">{app.monetization}</span>

@@ -3,6 +3,8 @@ import { ArrowLeft, CheckCircle, Lock, Eye, Shield, Smartphone, MapPin, BarChart
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
+import JsonLd from "@/components/JsonLd";
+import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 
 // Helper to render dynamic icons
 const IconRenderer = ({ name, className }: { name: string; className: string }) => {
@@ -23,6 +25,21 @@ interface PageProps {
     params: Promise<{ slug: string }>;
 }
 
+export async function generateMetadata({ params }: PageProps) {
+    const { slug } = await params;
+    const app = apps.find((a) => a.id === slug);
+
+    if (!app) {
+        return { title: "Privacy Policy" };
+    }
+
+    return pageMetadata({
+        title: `${app.name} Privacy Policy`,
+        description: `Privacy policy for ${app.name}, including ads, crash information, and how to contact Boa App Studio.`,
+        path: `/privacy-policy/${app.id}`,
+    });
+}
+
 export default async function PrivacyPolicyPage({ params }: PageProps) {
     const { slug } = await params;
     const app = apps.find((a) => a.id === slug);
@@ -31,8 +48,17 @@ export default async function PrivacyPolicyPage({ params }: PageProps) {
         notFound();
     }
 
+    const noRealCalls = app.privacyHighlights?.some((highlight) => highlight.title === "No Real Calls");
+
     return (
         <div className="bg-slate-50 min-h-screen pb-20">
+            <JsonLd
+                data={breadcrumbJsonLd([
+                    { name: "Home", path: "/" },
+                    { name: app.name, path: `/apps/${app.id}` },
+                    { name: "Privacy Policy", path: `/privacy-policy/${app.id}` },
+                ])}
+            />
             {/* Top Bar / Breadcrumb */}
             <div className="bg-white border-b border-slate-200">
                 <div className="container mx-auto px-4 py-4 sm:px-6 lg:px-8">
@@ -164,7 +190,7 @@ export default async function PrivacyPolicyPage({ params }: PageProps) {
                                 <div className="rounded-xl bg-white p-6 border border-slate-200 shadow-sm">
                                     <h4 className="font-bold text-slate-900 mb-2">Google AdMob</h4>
                                     <p className="text-sm text-slate-600 mb-3">We use Google AdMob to display advertisements. AdMob may use device identifiers and location data to show ads that are relevant to you.</p>
-                                    <a href="#" className="text-xs font-bold text-blue-600 hover:underline">Google Privacy Policy ↗</a>
+                                    <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="text-xs font-bold text-blue-600 hover:underline">Google Privacy Policy ↗</a>
                                 </div>
                             </div>
                         </div>
@@ -180,7 +206,29 @@ export default async function PrivacyPolicyPage({ params }: PageProps) {
                             </p>
                         </div>
 
-                        {/* Children’s Privacy & Contact - Styled Box */}
+                        <div id="children's-privacy">
+                            <div className="flex items-center gap-3 mb-6">
+                                <Lock className="h-6 w-6 text-blue-600" />
+                                <h3 className="text-xl font-bold text-slate-900">Children&apos;s Privacy</h3>
+                            </div>
+                            <div className="space-y-4 text-slate-600 leading-relaxed">
+                                <p>
+                                    {app.name} does not ask you to create an account.
+                                    {noRealCalls ? " The app does not make or receive real phone calls." : ""}
+                                </p>
+                                <p>
+                                    As described above, the app may display advertisements through Google AdMob and may collect basic crash information to improve stability. We do not sell, rent, or trade your personal data to third parties.
+                                </p>
+                                <p>
+                                    If you have a question about a child&apos;s use of this app, contact us at{" "}
+                                    <a href="mailto:contact@boaappstudio.com" className="font-bold text-blue-600 hover:underline">
+                                        contact@boaappstudio.com
+                                    </a>.
+                                </p>
+                            </div>
+                        </div>
+
+                        {/* Contact */}
                         <div id="contact-us" className="bg-white rounded-2xl border border-slate-200 p-8 sm:p-12 text-center shadow-sm">
                             <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-50 text-blue-600 mb-6">
                                 <Mail className="h-7 w-7" />

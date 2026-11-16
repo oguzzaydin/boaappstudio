@@ -4,6 +4,9 @@ import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import ScreenshotCarousel from "@/components/ScreenshotCarousel";
+import FAQ from "@/components/FAQ";
+import JsonLd from "@/components/JsonLd";
+import { appJsonLd, breadcrumbJsonLd, faqPageJsonLd, pageMetadata } from "@/lib/seo";
 
 // SSG: Generate params for all apps
 export async function generateStaticParams() {
@@ -23,22 +26,12 @@ export async function generateMetadata({ params }: PageProps) {
         };
     }
 
-    return {
+    return pageMetadata({
         title: app.name,
         description: app.description,
-        openGraph: {
-            title: `${app.name} | Boa App Studio`,
-            description: app.description,
-            images: app.icon ? [app.icon] : [],
-            url: `/apps/${app.id}`,
-        },
-        twitter: {
-            card: "summary",
-            title: `${app.name} | Boa App Studio`,
-            description: app.description,
-            images: app.icon ? [app.icon] : [],
-        },
-    };
+        path: `/apps/${app.id}`,
+        image: app.ogImage,
+    });
 }
 
 interface PageProps {
@@ -53,12 +46,14 @@ export default async function AppDetailPage({ params }: PageProps) {
         notFound();
     }
 
+    const softwareApp = appJsonLd(app);
+
     return (
         <div className="min-h-screen bg-white pb-20">
             {/* Top Navigation / Breadcrumb */}
             <div className="border-b border-slate-100 bg-white">
                 <div className="container mx-auto px-4 py-4 sm:px-6 lg:px-8">
-                    <Link href="/" className="inline-flex items-center text-sm font-semibold text-slate-500 hover:text-slate-900 transition-colors">
+                    <Link href="/apps" className="inline-flex items-center text-sm font-semibold text-slate-500 hover:text-slate-900 transition-colors">
                         <ArrowLeft className="mr-2 h-4 w-4" /> Back to Apps
                     </Link>
                 </div>
@@ -77,6 +72,8 @@ export default async function AppDetailPage({ params }: PageProps) {
                                         src={app.icon}
                                         alt={`${app.name} icon`}
                                         fill
+                                        priority
+                                        sizes="128px"
                                         className="object-cover"
                                     />
                                 ) : (
@@ -228,7 +225,24 @@ export default async function AppDetailPage({ params }: PageProps) {
 
                     </div>
                 </div>
+
+                {app.faqs && app.faqs.length > 0 && (
+                    <FAQ
+                        items={app.faqs}
+                        intro={`Answers about ${app.name}.`}
+                    />
+                )}
             </div>
+
+            <JsonLd
+                data={breadcrumbJsonLd([
+                    { name: "Home", path: "/" },
+                    { name: "Apps", path: "/apps" },
+                    { name: app.name, path: `/apps/${app.id}` },
+                ])}
+            />
+            {softwareApp ? <JsonLd data={softwareApp} /> : null}
+            {app.faqs && app.faqs.length > 0 ? <JsonLd data={faqPageJsonLd(app.faqs)} /> : null}
         </div>
     );
 }

@@ -1,10 +1,24 @@
 
-import { Shield, Eye, Lock, Server, FileText } from "lucide-react";
+import { Shield } from "lucide-react";
 import Link from "next/link";
+import JsonLd from "@/components/JsonLd";
+import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
+
+export const metadata = pageMetadata({
+    title: "Privacy Policy",
+    description: "Privacy policy for the Boa App Studio website, including anonymous analytics, support emails, and links to each app policy.",
+    path: "/privacy-policy",
+});
 
 export default function GeneralPrivacyPolicy() {
     return (
         <div className="min-h-screen bg-white">
+            <JsonLd
+                data={breadcrumbJsonLd([
+                    { name: "Home", path: "/" },
+                    { name: "Privacy Policy", path: "/privacy-policy" },
+                ])}
+            />
             {/* Header */}
             <div className="bg-slate-50 border-b border-slate-200">
                 <div className="container mx-auto px-4 py-16 sm:py-24">

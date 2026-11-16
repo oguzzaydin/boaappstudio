@@ -27,6 +27,10 @@ export interface AppData {
   privacyPolicy: string;
   features: string[];
   lastUpdated: string;
+  applicationCategory?: string;
+  operatingSystem?: string;
+  ogImage?: string;
+  faqs?: { question: string; answer: string }[];
   // New rich privacy data
   privacyHighlights?: PrivacyHighlight[];
   dataCollection?: DataCollectionItem[];
@@ -42,11 +46,11 @@ export const apps: AppData[] = [
     version: "1.0.0",
     icon: "/icons/fake-incoming-call.png",
     screenshots: [
-      "/screenshots/fake-incoming-call/1.png",
-      "/screenshots/fake-incoming-call/2.png",
-      "/screenshots/fake-incoming-call/3.png",
-      "/screenshots/fake-incoming-call/4.png",
-      "/screenshots/fake-incoming-call/5.png"
+      "/screenshots/fake-incoming-call/1.webp",
+      "/screenshots/fake-incoming-call/2.webp",
+      "/screenshots/fake-incoming-call/3.webp",
+      "/screenshots/fake-incoming-call/4.webp",
+      "/screenshots/fake-incoming-call/5.webp"
     ],
     storeLinks: {
       googlePlay: "https://play.google.com/store/apps/details?id=com.boaapps.fakeincomingcall",
@@ -63,6 +67,35 @@ export const apps: AppData[] = [
       "For entertainment purposes only"
     ],
     lastUpdated: "January 2026",
+    applicationCategory: "EntertainmentApplication",
+    operatingSystem: "ANDROID",
+    ogImage: "/og/fake-incoming-call-prank.jpg",
+    faqs: [
+      {
+        question: "Is this a real phone call?",
+        answer:
+          "No. Fake Incoming Call - Prank simulates an incoming call for entertainment. The app does not make or receive real phone calls."
+      },
+      {
+        question: "Is the app free?",
+        answer:
+          "Yes. The app is free and ad-supported. It may display ads from third-party partners such as Google AdMob."
+      },
+      {
+        question: "Does the app access my contacts or location?",
+        answer:
+          "No. The app does not access your contacts and does not collect precise location data. Advertising IDs may be used for ad relevance."
+      },
+      {
+        question: "Can I set the caller name and a timer?",
+        answer:
+          "Yes. You can set a custom caller name and number, choose a ringtone, and schedule a call delay."
+      },
+      {
+        question: "Does the app work offline?",
+        answer: "Yes. The app works fully offline."
+      }
+    ],
     privacyHighlights: [
       {
         icon: "CheckCircle",
@@ -97,7 +130,7 @@ export const apps: AppData[] = [
         icon: "Bug",
         title: "Crash Information",
         description:
-          "Basic crash see information may be collected to improve app stability."
+          "Basic crash information may be collected to improve app stability."
       }
     ]
   },
@@ -110,12 +143,12 @@ export const apps: AppData[] = [
   //   version: "1.0.0",
   //   icon: "/icons/fake-low-battery.png",
   //   screenshots: [
-  //     "/screenshots/fake-low-battery/1.png",
-  //     "/screenshots/fake-low-battery/2.png",
-  //     "/screenshots/fake-low-battery/3.png",
-  //     "/screenshots/fake-low-battery/4.png",
-  //     "/screenshots/fake-low-battery/5.png",
-  //     "/screenshots/fake-low-battery/6.png"
+  //     "/screenshots/fake-low-battery/1.webp",
+  //     "/screenshots/fake-low-battery/2.webp",
+  //     "/screenshots/fake-low-battery/3.webp",
+  //     "/screenshots/fake-low-battery/4.webp",
+  //     "/screenshots/fake-low-battery/5.webp",
+  //     "/screenshots/fake-low-battery/6.webp"
   //   ],
   //   storeLinks: {
   //     googlePlay: "#",
@@ -179,11 +212,11 @@ export const apps: AppData[] = [
   //   version: "1.0.0",
   //   icon: "/icons/balloon-pop-game-for-kids.jpg",
   //   screenshots: [
-  //     "/screenshots/balloon-pop-game-for-kids/1.png",
-  //     "/screenshots/balloon-pop-game-for-kids/2.png",
-  //     "/screenshots/balloon-pop-game-for-kids/3.png",
-  //     "/screenshots/balloon-pop-game-for-kids/4.png",
-  //     "/screenshots/balloon-pop-game-for-kids/5.png"
+  //     "/screenshots/balloon-pop-game-for-kids/1.webp",
+  //     "/screenshots/balloon-pop-game-for-kids/2.webp",
+  //     "/screenshots/balloon-pop-game-for-kids/3.webp",
+  //     "/screenshots/balloon-pop-game-for-kids/4.webp",
+  //     "/screenshots/balloon-pop-game-for-kids/5.webp"
   //   ],
   //   storeLinks: {
   //     googlePlay: "#",

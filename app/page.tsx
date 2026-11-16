@@ -1,7 +1,15 @@
-import AppCard from "@/components/AppCard";
+import AppList from "@/components/AppList";
 import FAQ from "@/components/FAQ";
+import JsonLd from "@/components/JsonLd";
 import { faqData } from "@/data/faq";
-import { apps } from "@/data/apps";
+import { faqNode, organizationJsonLd, pageMetadata, websiteJsonLd } from "@/lib/seo";
+
+export const metadata = pageMetadata({
+  title: "Boa App Studio – Privacy-Focused Mobile Apps",
+  description: "Transparent, privacy-focused mobile apps from Boa App Studio, including Fake Incoming Call - Prank.",
+  path: "/",
+  absoluteTitle: true,
+});
 
 export default function Home() {
   return (
@@ -16,42 +24,15 @@ export default function Home() {
         </p>
       </div>
 
-      <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-        {apps.map((app) => (
-          <AppCard key={app.id} app={app} />
-        ))}
-
-        {/* 'More Coming Soon' Card */}
-        <div className="flex flex-col items-center justify-center rounded-2xl border border-dashed border-gray-300 bg-slate-50 p-6 text-center">
-          <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-slate-100">
-            <span className="text-xl">🛠️</span>
-          </div>
-          <h3 className="mb-1 text-lg font-semibold text-slate-900">More Coming Soon</h3>
-          <p className="text-sm text-slate-500">
-            We are currently building new tools for health and fitness.
-          </p>
-        </div>
-      </div>
+      <AppList />
 
       {/* FAQ Section */}
       <FAQ />
 
-      {/* JSON-LD for FAQ */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": faqData.map(item => ({
-              "@type": "Question",
-              "name": item.question,
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": item.answer
-              }
-            }))
-          })
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@graph": [organizationJsonLd(), websiteJsonLd(), faqNode(faqData)],
         }}
       />
     </div>

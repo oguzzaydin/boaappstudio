@@ -19,7 +19,7 @@ export default function Navbar() {
                 <div className="flex items-center">
                     <Link href="/" className="flex items-center gap-3 group">
                         <div className="relative h-14 w-14 overflow-hidden rounded-lg shadow-sm transition-transform group-hover:scale-105">
-                            <Image src="/logo.png" alt="Logo" fill className="object-cover" />
+                            <Image src="/logo.png" alt="Boa App Studio" fill priority sizes="56px" className="object-cover" />
                         </div>
                         <span className="text-xl font-bold tracking-tight text-slate-900">
                             Boa App Studio
@@ -56,6 +56,7 @@ export default function Navbar() {
                                                             src={app.icon}
                                                             alt={app.name}
                                                             fill
+                                                            sizes="40px"
                                                             className="object-cover"
                                                         />
                                                     ) : (
@@ -73,7 +74,7 @@ export default function Navbar() {
                                     ))}
                                 </div>
                                 <div className="bg-slate-50 p-2 text-center">
-                                    <Link href="/" className="text-xs text-blue-600 hover:text-blue-700 font-medium">
+                                    <Link href="/apps" className="text-xs text-blue-600 hover:text-blue-700 font-medium">
                                         View All Apps →
                                     </Link>
                                 </div>
@@ -141,6 +142,7 @@ export default function Navbar() {
                                                         src={app.icon}
                                                         alt={app.name}
                                                         fill
+                                                        sizes="32px"
                                                         className="object-cover"
                                                     />
                                                 ) : (
@@ -152,6 +154,13 @@ export default function Navbar() {
                                             <span className="text-sm font-medium text-slate-600">{app.name}</span>
                                         </Link>
                                     ))}
+                                    <Link
+                                        href="/apps"
+                                        onClick={() => setIsMobileMenuOpen(false)}
+                                        className="block px-3 py-2.5 text-sm font-medium text-blue-600 hover:text-blue-700"
+                                    >
+                                        View All Apps
+                                    </Link>
                                 </div>
                             )}
                         </div>

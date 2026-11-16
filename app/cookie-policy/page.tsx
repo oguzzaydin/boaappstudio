@@ -1,9 +1,23 @@
 
 import { Cookie } from "lucide-react";
+import JsonLd from "@/components/JsonLd";
+import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
+
+export const metadata = pageMetadata({
+    title: "Cookie Policy",
+    description: "How Boa App Studio uses essential cookies and anonymous analytics cookies on this website.",
+    path: "/cookie-policy",
+});
 
 export default function CookiePolicy() {
     return (
         <div className="min-h-screen bg-white">
+            <JsonLd
+                data={breadcrumbJsonLd([
+                    { name: "Home", path: "/" },
+                    { name: "Cookie Policy", path: "/cookie-policy" },
+                ])}
+            />
             {/* Header */}
             <div className="bg-slate-50 border-b border-slate-200">
                 <div className="container mx-auto px-4 py-16 sm:py-24">
