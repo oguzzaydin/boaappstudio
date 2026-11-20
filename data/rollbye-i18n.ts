@@ -23,7 +23,7 @@ export const rollbyeTr: Partial<AppData> = {
   ],
   monetization: "Ücretsiz • isteğe bağlı Premium",
   adNote:
-    "Android ücretsiz sürümde, onayından sonra ay özeti ekranında tek bir native reklam görünebilir. iOS sürümlerinde reklam yoktur. Premium reklamları kaldırır.",
+    "Android ve iOS ücretsiz sürümde, onayından sonra ay özeti ekranında tek bir native reklam görünebilir. iOS'ta kişiselleştirilmiş reklam için ayrıca Apple'ın Uygulama İzleme Şeffaflığı (ATT) izni gerekir. Premium reklamları kaldırır.",
   features: [
     "Sağa kaydırarak tut, sola Silme Kutusu'na ekle — ücretsiz ve sınırsız",
     "Onaylamadan önce her şeyi Silme Kutusu'nda incele",
@@ -35,20 +35,20 @@ export const rollbyeTr: Partial<AppData> = {
   ],
   lastUpdated: "Kasım 2026",
   collectionLimits:
-    "Fotoğraf ve videolar yalnızca cihazda işlenir, hiçbir yere yüklenmez. Hesap yoktur. Analitik ve kilitlenme raporları, UMP formunda onay verdikten sonra Google Firebase kullanır. Android ücretsiz sürümde onay sonrası AdMob tek bir native reklam gösterebilir. Satın almalar RevenueCat ile doğrulanır.",
+    "Fotoğraf ve videolar yalnızca cihazda işlenir, hiçbir yere yüklenmez. Hesap yoktur. Analitik ve kilitlenme raporları, UMP formunda onay verdikten sonra Google Firebase kullanır. Android ve iOS ücretsiz sürümde onay sonrası AdMob tek bir native reklam gösterebilir (iOS'ta kişiselleştirilmiş reklam yalnızca ATT isteminde izlemeye izin verirsen). Satın almalar RevenueCat ile doğrulanır.",
   dataUsageNote:
-    "Gizliliğine saygı duyuyoruz. Fotoğraf ve videolar cihazında kalır, hiçbir yere yüklenmez. Uygulama hassas konum toplamaz ve kişilerine erişmez. Android'de, onay sonrası reklamlar için reklam kimliği kullanılabilir. Analitik ve kilitlenme günlükleri yalnızca UMP onayından sonra başlar.",
+    "Gizliliğine saygı duyuyoruz. Fotoğraf ve videolar cihazında kalır, hiçbir yere yüklenmez. Uygulama hassas konum toplamaz ve kişilerine erişmez. Onay sonrası reklamlar için reklam kimliği kullanılabilir: Android reklam kimliği veya iOS'ta yalnızca ATT isteminde izlemeye izin verirsen IDFA. Analitik ve kilitlenme günlükleri yalnızca UMP onayından sonra başlar.",
   advertisingIntro:
-    "Android ücretsiz sürümde, onayından sonra tek bir native reklam görünebilir. iOS sürümlerinde reklam yoktur. Premium reklamları kaldırır.",
+    "Android ve iOS ücretsiz sürümde, onayından sonra tek bir native reklam görünebilir. iOS'ta Apple'ın Uygulama İzleme Şeffaflığı (ATT) izni istenir; reddedersen yalnızca kişiselleştirilmemiş reklam gösterilir. Premium reklamları kaldırır. Huawei AppGallery sürümünde reklam yoktur.",
   advertisingServices: [
     {
       name: "Google AdMob",
       description:
-        "Android ücretsiz sürümde, UMP onayından sonra ay özeti ekranında tek bir native reklam göstermek için Google AdMob kullanırız. AdMob kendi tarafında bir reklam tanımlayıcısı kullanabilir. iOS sürümlerinde reklam yoktur.",
+        "Android ve iOS ücretsiz sürümde, UMP onayından sonra ay özeti ekranında tek bir native reklam göstermek için Google AdMob kullanırız. AdMob kendi tarafında bir reklam tanımlayıcısı kullanabilir: Android reklam kimliği veya iOS'ta yalnızca ATT isteminde izlemeye izin verirsen IDFA. AdMob ayrıca reklam verilerini, cihaz ve uygulama bilgilerini, IP adresinden türetilen yaklaşık konumu ve tanılama verilerini işleyebilir.",
     },
   ],
   childrenPrivacyNote:
-    "Yukarıda açıklandığı gibi, Android ücretsiz sürüm onay sonrası Google AdMob üzerinden tek bir reklam gösterebilir ve uygulama UMP onayından sonra kullanım istatistikleri ve kilitlenme günlükleri için Google Firebase Analytics ile Firebase Crashlytics kullanır. Kişisel verilerini üçüncü taraflara satmaz, kiralamaz veya takas etmeyiz.",
+    "Yukarıda açıklandığı gibi, Android ve iOS ücretsiz sürüm onay sonrası Google AdMob üzerinden tek bir reklam gösterebilir ve uygulama UMP onayından sonra kullanım istatistikleri ve kilitlenme günlükleri için Google Firebase Analytics ile Firebase Crashlytics kullanır. Kişisel verilerini üçüncü taraflara satmaz, kiralamaz veya takas etmeyiz.",
   privacyHighlights: [
     {
       icon: "CheckCircle",
@@ -68,7 +68,7 @@ export const rollbyeTr: Partial<AppData> = {
       icon: "Eye",
       title: "Önce onay",
       description:
-        "Firebase Analytics, Crashlytics ve Android reklamları yalnızca UMP onay formunda bir seçim yaptıktan sonra başlar.",
+        "Firebase Analytics, Crashlytics ve reklamlar yalnızca UMP onay formunda bir seçim yaptıktan sonra başlar. iOS'ta reklam izleme için ayrıca ATT izni gerekir.",
       color: "purple",
     },
   ],
@@ -83,7 +83,7 @@ export const rollbyeTr: Partial<AppData> = {
       icon: "Ad",
       title: "Reklam verileri",
       description:
-        "Android ücretsiz sürümde Google AdMob, onay sonrası cihaz reklam tanımlayıcısını kullanabilir. iOS sürümlerinde reklam yoktur. Premium reklamları kaldırır.",
+        "Ücretsiz sürümde Google AdMob, onay sonrası cihaz reklam tanımlayıcısını kullanabilir: Android'de reklam kimliği, iOS'ta yalnızca ATT isteminde izlemeye izin verirsen IDFA (aksi halde kişiselleştirilmemiş reklam). İzlemeyi istediğin zaman iOS Ayarlar → Gizlilik ve Güvenlik → İzleme'den kapatabilirsin. Premium reklamları kaldırır.",
     },
     {
       icon: "BarChart",
@@ -135,7 +135,7 @@ export const rollbyeTr: Partial<AppData> = {
     {
       question: "Uygulama reklam gösteriyor mu?",
       answer:
-        "Android ücretsiz sürümde, onayından sonra ay özeti ekranında tek bir native reklam görünebilir. iOS sürümlerinde reklam yoktur. Premium reklamları kaldırır.",
+        "Android ve iOS ücretsiz sürümde, onayından sonra ay özeti ekranında tek bir native reklam görünebilir. iOS'ta kişiselleştirilmiş reklam için ayrıca Apple'ın Uygulama İzleme Şeffaflığı (ATT) izni gerekir. Premium reklamları kaldırır.",
     },
     {
       question: "Hangi diller destekleniyor?",

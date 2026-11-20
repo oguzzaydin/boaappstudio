@@ -218,7 +218,7 @@ export const apps: AppData[] = [
     },
     monetization: "Free • optional Premium",
     adNote:
-      "On the Android free tier, a single native ad may appear on the month-summary screen after you consent. iOS builds do not show ads. Premium removes ads.",
+      "In the free version on Android and iOS, a single native ad may appear on the month-summary screen after you consent. On iOS, personalised ads also require your permission in Apple’s App Tracking Transparency (ATT) prompt. Premium removes ads.",
     privacyPolicy: "/apps/rollbye/privacy",
     termsUrl: "/apps/rollbye/terms",
     deleteDataUrl: "/apps/rollbye/delete-data",
@@ -233,25 +233,25 @@ export const apps: AppData[] = [
       "Nine languages"
     ],
     lastUpdated: "November 2026",
-    packageName: "com.boaaps.rollbye",
+    packageName: "com.boaapps.rollbye",
     collectionLimits:
-      "Photos and videos are processed on your device only and are never uploaded. There is no account. Analytics and crash reporting use Google Firebase after you consent in the UMP form. On the Android free tier, Google AdMob may show a single native ad after consent. Purchases use RevenueCat.",
+      "Photos and videos are processed on your device only and are never uploaded. There is no account. Analytics and crash reporting use Google Firebase after you consent in the UMP form. In the free version on Android and iOS, Google AdMob may show a single native ad after consent (on iOS, personalised ads only if you allow tracking in the ATT prompt). Purchases use RevenueCat.",
     applicationCategory: "UtilitiesApplication",
     operatingSystem: "ANDROID, IOS",
     ogImage: "/og/rollbye.jpg",
     dataUsageNote:
-      "We respect your privacy. Photos and videos stay on your device and are never uploaded. This app does not collect precise location data or access your contacts. On Android, an advertising ID may be used for ads after consent. Analytics and crash logs start only after UMP consent.",
+      "We respect your privacy. Photos and videos stay on your device and are never uploaded. This app does not collect precise location data or access your contacts. After consent, an advertising identifier may be used for ads: the Android advertising ID, or on iOS the IDFA only if you allow tracking in the ATT prompt. Analytics and crash logs start only after UMP consent.",
     advertisingIntro:
-      "On Android, the free tier may show a single native advertisement after you consent. iOS builds do not show ads. Premium removes ads.",
+      "On Android and iOS, the free version may show a single native advertisement after you consent. On iOS we ask for permission through Apple’s App Tracking Transparency (ATT) prompt; if you decline, only non-personalised ads are shown. Premium removes ads. The Huawei AppGallery build has no ads.",
     advertisingServices: [
       {
         name: "Google AdMob",
         description:
-          "On the Android free tier we use Google AdMob to display a single native ad on the month-summary screen after UMP consent. AdMob may use an advertising identifier on its own side. iOS builds do not show ads."
+          "In the free version on Android and iOS we use Google AdMob to display a single native ad on the month-summary screen after UMP consent. AdMob may use an advertising identifier on its own side: the Android advertising ID, or on iOS the IDFA only if you allow tracking in the ATT prompt. AdMob may also process advertising data, device and app information, approximate location derived from your IP address, and diagnostics."
       }
     ],
     childrenPrivacyNote:
-      "As described above, the Android free tier may display a single advertisement through Google AdMob after consent, and the app uses Google Firebase Analytics and Firebase Crashlytics for usage statistics and crash logs after UMP consent. We do not sell, rent, or trade your personal data to third parties.",
+      "As described above, the free version on Android and iOS may display a single advertisement through Google AdMob after consent, and the app uses Google Firebase Analytics and Firebase Crashlytics for usage statistics and crash logs after UMP consent. We do not sell, rent, or trade your personal data to third parties.",
     privacyHighlights: [
       {
         icon: "CheckCircle",
@@ -271,7 +271,7 @@ export const apps: AppData[] = [
         icon: "Eye",
         title: "Consent First",
         description:
-          "Firebase Analytics, Crashlytics, and Android ads start only after you make a choice in the UMP consent form.",
+          "Firebase Analytics, Crashlytics, and ads start only after you make a choice in the UMP consent form. On iOS, ad tracking also needs your ATT permission.",
         color: "purple"
       }
     ],
@@ -286,7 +286,7 @@ export const apps: AppData[] = [
         icon: "Ad",
         title: "Advertising Data",
         description:
-          "On the Android free tier, Google AdMob may use a device advertising identifier after consent. iOS builds do not show ads. Premium removes ads."
+          "In the free version, Google AdMob may use a device advertising identifier after consent — on Android the advertising ID, on iOS the IDFA only if you allow tracking in the ATT prompt (otherwise non-personalised ads). You can turn tracking off any time in iOS Settings → Privacy & Security → Tracking. Premium removes ads."
       },
       {
         icon: "BarChart",
@@ -338,7 +338,7 @@ export const apps: AppData[] = [
       {
         question: "Does the app show ads?",
         answer:
-          "On the Android free tier, a single native ad may appear on the month-summary screen after you consent. iOS builds do not show ads. Premium removes ads."
+          "In the free version on Android and iOS, a single native ad may appear on the month-summary screen after you consent. On iOS, personalised ads also require your permission in Apple’s App Tracking Transparency (ATT) prompt. Premium removes ads."
       },
       {
         question: "Which languages are supported?",
