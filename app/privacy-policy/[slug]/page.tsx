@@ -1,5 +1,5 @@
 import { apps } from "@/data/apps";
-import { ArrowLeft, CheckCircle, Lock, Eye, Shield, Smartphone, MapPin, BarChart, XCircle, Database, Mail, LucideIcon } from "lucide-react";
+import { ArrowLeft, Bug, CheckCircle, Lock, Eye, Shield, Smartphone, MapPin, BarChart, XCircle, Database, Mail, LucideIcon } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
@@ -9,7 +9,7 @@ import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 // Helper to render dynamic icons
 const IconRenderer = ({ name, className }: { name: string; className: string }) => {
     const icons: Record<string, LucideIcon> = {
-        CheckCircle, Lock, Eye, Shield, Smartphone, MapPin, BarChart, XCircle, Database
+        Bug, CheckCircle, Lock, Eye, Shield, Smartphone, MapPin, BarChart, XCircle, Database
     };
     const Icon = icons[name] || Shield;
     return <Icon className={className} />;
@@ -35,7 +35,7 @@ export async function generateMetadata({ params }: PageProps) {
 
     return pageMetadata({
         title: `${app.name} Privacy Policy`,
-        description: `Privacy policy for ${app.name}, including ads, crash information, and how to contact Boa Apps Studio.`,
+        description: `Privacy policy for ${app.name}, including ads, analytics, crash information, and how to contact Boa Apps Studio.`,
         path: `/privacy-policy/${app.id}`,
     });
 }
@@ -77,7 +77,7 @@ export default async function PrivacyPolicyPage({ params }: PageProps) {
                             <div>
                                 <h3 className="text-xs font-bold uppercase tracking-wider text-slate-900 mb-4">Contents</h3>
                                 <nav className="space-y-3">
-                                    {['Introduction', 'Policy Highlights', 'Information We Collect', 'Advertising & Analytics', 'Data Security', 'Children\'s Privacy', 'Contact Us'].map((item) => (
+                                    {['Introduction', 'Policy Highlights', 'Information We Collect', 'Advertising & Analytics', 'Data Security', 'Children\'s Privacy', 'Your Rights and Data Deletion', 'Contact Us'].map((item) => (
                                         <a key={item} href={`#${item.toLowerCase().replace(/ /g, '-')}`} className="block text-sm font-medium text-slate-500 hover:text-blue-600 border-l-2 border-transparent hover:border-blue-600 pl-3 transition-all scroll-smooth">
                                             {item}
                                         </a>
@@ -110,13 +110,11 @@ export default async function PrivacyPolicyPage({ params }: PageProps) {
                                 )}
                             </div>
                             <div>
-                                <div className="flex items-center gap-3 mb-2">
-                                    <h1 className="text-3xl font-bold text-slate-900">{app.name}</h1>
-                                    <span className="rounded-full bg-blue-50 px-2.5 py-0.5 text-xs font-bold text-blue-600 border border-blue-100">
-                                        v{app.version}
-                                    </span>
-                                </div>
+                                <h1 className="text-3xl font-bold text-slate-900 mb-2">{app.name}</h1>
                                 <h2 className="text-xl font-medium text-slate-500">Privacy Policy</h2>
+                                {app.packageName ? (
+                                    <p className="text-sm text-slate-500 mt-1">Package name: {app.packageName}</p>
+                                ) : null}
                                 <p className="text-sm text-slate-400 mt-1">Last Updated: {app.lastUpdated}</p>
                             </div>
                         </div>
@@ -143,7 +141,7 @@ export default async function PrivacyPolicyPage({ params }: PageProps) {
                         {/* Introduction Text */}
                         <div className="prose prose-slate max-w-none">
                             <p className="text-lg leading-relaxed text-slate-600">
-                                At <strong>Boa App Studio</strong>, we take your privacy seriously. This Privacy Policy describes our policies and procedures on the collection, use, and disclosure of your information when you use the Service and tells you about your privacy rights and how the law protects you.
+                                At <strong>Boa Apps Studio</strong>, we take your privacy seriously. This Privacy Policy describes our policies and procedures on the collection, use, and disclosure of your information when you use the Service and tells you about your privacy rights and how the law protects you.
                             </p>
                             <p className="text-sm text-slate-500">
                                 By using the Service, You agree to the collection and use of information in accordance with this Privacy Policy. We use Your Personal Data to provide and improve the Service.
@@ -156,6 +154,10 @@ export default async function PrivacyPolicyPage({ params }: PageProps) {
                                 <Database className="h-6 w-6 text-blue-600" />
                                 <h3 className="text-xl font-bold text-slate-900">Information We Collect</h3>
                             </div>
+
+                            {app.collectionLimits ? (
+                                <p className="text-slate-600 leading-relaxed mb-6">{app.collectionLimits}</p>
+                            ) : null}
 
                             <div className="space-y-4">
                                 {app.dataCollection && app.dataCollection.length > 0 ? (
@@ -189,9 +191,16 @@ export default async function PrivacyPolicyPage({ params }: PageProps) {
                             <div className="grid gap-4">
                                 <div className="rounded-xl bg-white p-6 border border-slate-200 shadow-sm">
                                     <h4 className="font-bold text-slate-900 mb-2">Google AdMob</h4>
-                                    <p className="text-sm text-slate-600 mb-3">We use Google AdMob to display advertisements. AdMob may use device identifiers and location data to show ads that are relevant to you.</p>
+                                    <p className="text-sm text-slate-600 mb-3">We use Google AdMob to display advertisements. AdMob may use device identifiers and location data on its own side to show ads that are relevant to you.</p>
                                     <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="text-xs font-bold text-blue-600 hover:underline">Google Privacy Policy ↗</a>
                                 </div>
+                                {app.analyticsServices?.map((service) => (
+                                    <div key={service.name} className="rounded-xl bg-white p-6 border border-slate-200 shadow-sm">
+                                        <h4 className="font-bold text-slate-900 mb-2">{service.name}</h4>
+                                        <p className="text-sm text-slate-600 mb-3">{service.description}</p>
+                                        <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="text-xs font-bold text-blue-600 hover:underline">Google Privacy Policy ↗</a>
+                                    </div>
+                                ))}
                             </div>
                         </div>
 
@@ -217,7 +226,11 @@ export default async function PrivacyPolicyPage({ params }: PageProps) {
                                     {noRealCalls ? " The app does not make or receive real phone calls." : ""}
                                 </p>
                                 <p>
-                                    As described above, the app may display advertisements through Google AdMob and may collect basic crash information to improve stability. We do not sell, rent, or trade your personal data to third parties.
+                                    As described above, the app may display advertisements through Google AdMob
+                                    {app.analyticsServices && app.analyticsServices.length > 0
+                                        ? " and uses Google Firebase Analytics and Firebase Crashlytics for usage statistics and crash logs."
+                                        : " and may collect basic crash information to improve stability."}{" "}
+                                    We do not sell, rent, or trade your personal data to third parties.
                                 </p>
                                 <p>
                                     If you have a question about a child&apos;s use of this app, contact us at{" "}
@@ -226,6 +239,19 @@ export default async function PrivacyPolicyPage({ params }: PageProps) {
                                     </a>.
                                 </p>
                             </div>
+                        </div>
+
+                        <div id="your-rights-and-data-deletion">
+                            <div className="flex items-center gap-3 mb-6">
+                                <Shield className="h-6 w-6 text-blue-600" />
+                                <h3 className="text-xl font-bold text-slate-900">Your Rights and Data Deletion</h3>
+                            </div>
+                            <p className="text-slate-600 leading-relaxed">
+                                You can request access to your data, or ask us to delete it, by emailing{" "}
+                                <a href="mailto:contact@boaappstudio.com" className="font-bold text-blue-600 hover:underline">
+                                    contact@boaappstudio.com
+                                </a>.
+                            </p>
                         </div>
 
                         {/* Contact */}

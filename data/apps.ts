@@ -11,6 +11,11 @@ export interface DataCollectionItem {
   description: string;
 }
 
+export interface AnalyticsService {
+  name: string;
+  description: string;
+}
+
 export interface AppData {
   id: string;
   name: string;
@@ -36,6 +41,9 @@ export interface AppData {
   // New rich privacy data
   privacyHighlights?: PrivacyHighlight[];
   dataCollection?: DataCollectionItem[];
+  packageName?: string;
+  collectionLimits?: string;
+  analyticsServices?: AnalyticsService[];
 }
 
 export const apps: AppData[] = [
@@ -83,7 +91,10 @@ export const apps: AppData[] = [
       "Works fully offline",
       "For entertainment purposes only"
     ],
-    lastUpdated: "January 2026",
+    lastUpdated: "November 2026",
+    packageName: "com.boaapps.fakeincomingcall",
+    collectionLimits:
+      "This app does not collect contacts, photos, location, or call logs, and it does not require an account.",
     applicationCategory: "EntertainmentApplication",
     operatingSystem: "ANDROID",
     ogImage: "/og/fake-incoming-call-prank.jpg",
@@ -144,10 +155,28 @@ export const apps: AppData[] = [
           "The app may display ads provided by third-party advertising partners such as Google AdMob. Ads are not shown during a call."
       },
       {
-        icon: "Bug",
-        title: "Crash Information",
+        icon: "BarChart",
+        title: "Usage statistics",
         description:
-          "Basic crash information may be collected to improve app stability."
+          "Google Firebase Analytics is used for usage statistics and device identifiers."
+      },
+      {
+        icon: "Bug",
+        title: "Crash logs",
+        description:
+          "Google Firebase Crashlytics is used for crash logs."
+      }
+    ],
+    analyticsServices: [
+      {
+        name: "Google Firebase Analytics",
+        description:
+          "We use Google Firebase Analytics for usage statistics. It may collect device identifiers and information about how the app is used."
+      },
+      {
+        name: "Google Firebase Crashlytics",
+        description:
+          "We use Google Firebase Crashlytics to collect crash logs so we can find and fix stability problems."
       }
     ]
   },
