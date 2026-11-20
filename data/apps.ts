@@ -44,6 +44,14 @@ export interface AppData {
   packageName?: string;
   collectionLimits?: string;
   analyticsServices?: AnalyticsService[];
+  termsUrl?: string;
+  deleteDataUrl?: string;
+  supportPageUrl?: string;
+  dataUsageNote?: string;
+  advertisingIntro?: string;
+  advertisingServices?: AnalyticsService[];
+  childrenPrivacyNote?: string;
+  locales?: Array<"en" | "tr">;
 }
 
 export const apps: AppData[] = [
@@ -185,28 +193,160 @@ export const apps: AppData[] = [
     name: "Rollbye",
     tagline: "Swipe Photo Cleaner",
     description:
-      "Review your camera roll month by month, keep or add items to a Delete Box, and free space with on-device tools. Your photos never leave your phone.",
+      "Rollbye helps you review your photo and video library month by month. Swipe right to keep, left to add to Delete Box. Photos stay on your device — no account, no upload.",
     version: "1.0.0",
-    icon: "",
-    screenshots: [],
+    icon: "/icons/rollbye.png",
+    screenshots: [
+      "/screenshots/rollbye/1.webp",
+      "/screenshots/rollbye/2.webp",
+      "/screenshots/rollbye/3.webp",
+      "/screenshots/rollbye/4.webp",
+      "/screenshots/rollbye/5.webp",
+      "/screenshots/rollbye/6.webp"
+    ],
+    screenshotAlts: [
+      "Swipe to keep or delete. Right keeps. Left adds to Delete Box.",
+      "Clean month by month. See progress across your library.",
+      "Review before you delete. Android 11+: items go to Trash first.",
+      "Find screenshots, large videos, and more. Similar and blurry tools are Premium.",
+      "See what you freed. Clear totals after each month.",
+      "Your photos stay on your device. No account needed."
+    ],
     storeLinks: {
       googlePlay: "#",
-      appStore: "#",
+      appStore: "#"
     },
-    monetization: "Free • optional Premium • ads on Android free tier",
+    monetization: "Free • optional Premium",
+    adNote:
+      "On the Android free tier, a single native ad may appear on the month-summary screen after you consent. iOS builds do not show ads. Premium removes ads.",
     privacyPolicy: "/apps/rollbye/privacy",
+    termsUrl: "/apps/rollbye/terms",
+    deleteDataUrl: "/apps/rollbye/delete-data",
+    supportPageUrl: "/apps/rollbye/support",
     features: [
-      "Swipe to keep or clean",
-      "On-device photo tools",
-      "Delete Box with verification",
-      "Nine languages",
+      "Swipe right to keep, left to add to Delete Box — unlimited and free",
+      "Review everything in Delete Box before you confirm",
+      "Free tools for screenshots and large videos",
+      "Similar photo groups: the first three are free",
+      "Photos and videos stay on your device — no account, no upload",
+      "Optional Premium: lifetime, yearly, or monthly",
+      "Nine languages"
     ],
     lastUpdated: "November 2026",
     packageName: "com.boaaps.rollbye",
     collectionLimits:
-      "Photos and videos are processed on the device only and are not uploaded. Analytics and crash reporting use Firebase after UMP consent. Android free tier may show ads via AdMob. Purchases use RevenueCat.",
+      "Photos and videos are processed on your device only and are never uploaded. There is no account. Analytics and crash reporting use Google Firebase after you consent in the UMP form. On the Android free tier, Google AdMob may show a single native ad after consent. Purchases use RevenueCat.",
     applicationCategory: "UtilitiesApplication",
     operatingSystem: "ANDROID, IOS",
+    ogImage: "/og/rollbye.jpg",
+    dataUsageNote:
+      "We respect your privacy. Photos and videos stay on your device and are never uploaded. This app does not collect precise location data or access your contacts. On Android, an advertising ID may be used for ads after consent. Analytics and crash logs start only after UMP consent.",
+    advertisingIntro:
+      "On Android, the free tier may show a single native advertisement after you consent. iOS builds do not show ads. Premium removes ads.",
+    advertisingServices: [
+      {
+        name: "Google AdMob",
+        description:
+          "On the Android free tier we use Google AdMob to display a single native ad on the month-summary screen after UMP consent. AdMob may use an advertising identifier on its own side. iOS builds do not show ads."
+      }
+    ],
+    childrenPrivacyNote:
+      "As described above, the Android free tier may display a single advertisement through Google AdMob after consent, and the app uses Google Firebase Analytics and Firebase Crashlytics for usage statistics and crash logs after UMP consent. We do not sell, rent, or trade your personal data to third parties.",
+    privacyHighlights: [
+      {
+        icon: "CheckCircle",
+        title: "Photos Stay on Device",
+        description:
+          "Your photo and video library is analyzed on the phone. Media files are never uploaded to our servers or copied to the cloud.",
+        color: "emerald"
+      },
+      {
+        icon: "Shield",
+        title: "No Account Required",
+        description:
+          "Rollbye does not ask you to create an account. You can use the app without signing in.",
+        color: "blue"
+      },
+      {
+        icon: "Eye",
+        title: "Consent First",
+        description:
+          "Firebase Analytics, Crashlytics, and Android ads start only after you make a choice in the UMP consent form.",
+        color: "purple"
+      }
+    ],
+    dataCollection: [
+      {
+        icon: "Smartphone",
+        title: "Photos and Videos",
+        description:
+          "The app reads your library on the device so you can swipe, review, and delete. Media never leaves the phone and is not sent to Boa Apps Studio."
+      },
+      {
+        icon: "Ad",
+        title: "Advertising Data",
+        description:
+          "On the Android free tier, Google AdMob may use a device advertising identifier after consent. iOS builds do not show ads. Premium removes ads."
+      },
+      {
+        icon: "BarChart",
+        title: "Usage Statistics",
+        description:
+          "After UMP consent, Google Firebase Analytics may collect events such as screens opened, feature usage, and basic device or app information."
+      },
+      {
+        icon: "Bug",
+        title: "Crash Information",
+        description:
+          "After UMP consent, Google Firebase Crashlytics may collect crash logs and device information so we can find and fix stability problems."
+      },
+      {
+        icon: "Database",
+        title: "Purchases",
+        description:
+          "Optional Premium purchases are processed by Apple or Google and validated with RevenueCat. RevenueCat may use an anonymous app user identifier. We do not receive your full payment card details."
+      }
+    ],
+    analyticsServices: [
+      {
+        name: "Google Firebase Analytics",
+        description:
+          "After you consent, we use Google Firebase Analytics to understand how features are used so we can improve the app. You can withdraw consent in the system or app consent settings."
+      },
+      {
+        name: "Google Firebase Crashlytics",
+        description:
+          "After you consent, we use Google Firebase Crashlytics to collect crash logs so we can find and fix stability problems."
+      }
+    ],
+    faqs: [
+      {
+        question: "Do my photos leave my phone?",
+        answer:
+          "No. Photos and videos stay on your device. They are never uploaded, and your library is not copied to the cloud. Analysis runs on the phone."
+      },
+      {
+        question: "Is Rollbye free?",
+        answer:
+          "Swiping and deleting are free and unlimited. Screenshots and large-video tools are free. The first three similar-photo groups are free. Blurry photos, more similar groups, and move to album are Premium."
+      },
+      {
+        question: "How do deletions work?",
+        answer:
+          "You review items in Delete Box before you confirm. On iOS, deleted items go to Recently Deleted for 30 days. On Android 11 and newer they go to Trash, usually for about 30 days. On older Android, deletion is permanent after you confirm."
+      },
+      {
+        question: "Does the app show ads?",
+        answer:
+          "On the Android free tier, a single native ad may appear on the month-summary screen after you consent. iOS builds do not show ads. Premium removes ads."
+      },
+      {
+        question: "Which languages are supported?",
+        answer:
+          "Rollbye is available in English, Türkçe, Français, Deutsch, Português (Brasil), Español, 한국어, Nederlands, and Italiano."
+      }
+    ],
+    locales: ["en", "tr"]
   },
 
   // {
