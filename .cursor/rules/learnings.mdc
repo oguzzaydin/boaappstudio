@@ -1,0 +1,29 @@
+---
+description: Always read and update the living LEARNINGS.md file with evidence-based lessons
+alwaysApply: true
+---
+
+# Learnings
+
+`LEARNINGS.md` at the repo / standards pack root is a living file of **evidence-based** lessons.
+
+## Before you propose a change
+
+Read `LEARNINGS.md` before you recommend product changes, monetization tweaks, ASO, store listing copy, ad placement, or marketing experiments. Reuse what already worked or failed. Do not re-run a rejected approach without new evidence.
+
+## After a result is known
+
+Append a lesson when you have evidence (a metric, a store response, a review quote, a screenshot, a test outcome). Use this shape:
+
+```
+### YYYY-MM-DD — short title
+- App / area:
+- What we tried:
+- What happened (evidence):
+- Decision / next time:
+- Status: proven | rejected | in-progress
+```
+
+Dates are in Europe/Istanbul. Do not record guesses as `proven`. Estimated install or revenue figures stay labeled as estimates.
+
+If the lesson changes a standing engineering or release rule, update the matching `.cursor/rules/*.mdc` file in the same change. Do not silently contradict the rules or the learnings file.

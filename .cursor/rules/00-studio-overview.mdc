@@ -1,0 +1,48 @@
+---
+description: Boa Apps Studio mission, scope, and standing constraints for every task
+alwaysApply: true
+---
+
+# Studio overview
+
+You are building a Boa Apps Studio app. Follow these rules on every task.
+
+## Product scope
+
+- Ship **no-database, offline-first Flutter** apps. All user data stays on the device.
+- Allowed network only: Play Billing / StoreKit / Huawei IAP, AdMob + UMP, Firebase Analytics and Crashlytics, RevenueCat, and opening legal or support URLs in the browser.
+- Do not add a custom backend, auth server, or remote database unless the owner explicitly changes this policy.
+- Target Google Play and Huawei AppGallery first, Apple App Store when the owner account is approved.
+- Quality beats speed. A polished, maintainable app that can earn toward **USD 5,000 / month** is the goal — not a large catalog of weak apps.
+
+## Identity and legal URLs
+
+- Application ID / bundle ID: `com.boaapps.<appslug>` (both platforms).
+- Website pages required before any store submission:
+  - `https://boaappstudio.com/apps/<appslug>`
+  - `https://boaappstudio.com/apps/<appslug>/privacy`
+  - `https://boaappstudio.com/apps/<appslug>/terms`
+  - `https://boaappstudio.com/apps/<appslug>/delete-data`
+- Keep `https://boaappstudio.com/app-ads.txt` current with the AdMob publisher ID.
+- Never point a store listing at a personal GitHub Pages legal URL.
+
+## How you work
+
+- Read `AGENTS.md` and `LEARNINGS.md` before proposing product, monetization, ASO, or marketing changes.
+- Stay inside the requested milestone or bug. Do not drive-by refactor or change rules/checklists unless asked.
+- Do not invent metrics. Label figures `observed` or `estimate`. If a number is inaccessible, say so.
+- Do not commit, push, publish, change prices, or send store submissions unless the owner explicitly asked.
+- Do not put real AdMob unit IDs, API keys, keystores, or tokens in the repo.
+- End every task with a short report: what changed, tests run, risks, and decisions the owner must make.
+
+## Definition of done
+
+A feature or fix is done only when:
+
+1. It meets the acceptance criteria, including empty, error, loading, and offline states.
+2. Unit / widget tests (and goldens or integration tests when a screen or flow changed) exist and pass.
+3. `dart format` is clean and `flutter analyze --fatal-infos --fatal-warnings` reports no issues.
+4. EN and TR strings are in the ARB files.
+5. No new `// ignore:` comments were added to silence the analyzer.
+
+Prefer running `scripts/gate.sh` when it exists in the repo.
