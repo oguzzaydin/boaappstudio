@@ -1,7 +1,8 @@
-import { ArrowLeft, CheckCircle, Shield, Smartphone, Info, Mail } from "lucide-react";
+import { ArrowLeft, CheckCircle, Shield, Smartphone, Info, Mail, Play } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import ScreenshotCarousel from "@/components/ScreenshotCarousel";
+import YouTubeLite from "@/components/YouTubeLite";
 import FAQ from "@/components/FAQ";
 import JsonLd from "@/components/JsonLd";
 import LocaleSwitch from "@/components/LocaleSwitch";
@@ -13,6 +14,7 @@ import { appJsonLd, breadcrumbJsonLd, faqPageJsonLd } from "@/lib/seo";
 const landingCopy = {
     en: {
         backToApps: "Back to Apps",
+        preview: "Preview",
         appInterface: "App Interface",
         screenshotsNote: "Images represent the current version of the application on compatible devices.",
         about: "About this App",
@@ -35,6 +37,7 @@ const landingCopy = {
     },
     tr: {
         backToApps: "Uygulamalara dön",
+        preview: "Önizleme",
         appInterface: "Uygulama arayüzü",
         screenshotsNote: "Görseller, uyumlu cihazlardaki güncel sürümü temsil eder.",
         about: "Bu uygulama hakkında",
@@ -84,7 +87,7 @@ export default function AppLanding({ app, locale = "en", showLocaleSwitch = fals
             <div className="container mx-auto px-4 py-6 sm:px-6 lg:px-8 lg:py-12">
                 <div className="grid gap-8 lg:gap-16 lg:grid-cols-12">
                     {/* Main Content */}
-                    <div className="lg:col-span-8 space-y-8 lg:space-y-16">
+                    <div className="min-w-0 lg:col-span-8 space-y-8 lg:space-y-16">
 
                         {/* Header Section with Icon, Title, Description, and Badges */}
                         <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 sm:gap-8">
@@ -144,6 +147,21 @@ export default function AppLanding({ app, locale = "en", showLocaleSwitch = fals
                                 </div>
                             </div>
                         </div>
+
+                        {app.previewVideo ? (
+                            <div>
+                                <div className="flex items-center gap-2 mb-6">
+                                    <Play className="h-5 w-5 text-blue-600" />
+                                    <h2 className="text-xl font-bold text-slate-900">{t.preview}</h2>
+                                </div>
+                                <YouTubeLite
+                                    videoId={app.previewVideo.youtubeId}
+                                    title={app.previewVideo.title}
+                                    poster={app.previewVideo.poster}
+                                    posterAlt={app.previewVideo.posterAlt}
+                                />
+                            </div>
+                        ) : null}
 
                         {/* Screenshots Section */}
                         <div>

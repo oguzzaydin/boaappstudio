@@ -78,7 +78,7 @@ export default function ScreenshotCarousel({ screenshots, appName, alts }: Scree
 
     // Carousel Layout for > 3 images
     return (
-        <div className="relative group/carousel">
+        <div className="relative min-w-0 group/carousel">
             {/* Left Scroll Button */}
             {showLeftArrow && (
                 <button

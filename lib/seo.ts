@@ -23,6 +23,9 @@ type PageMetadataInput = {
   path: string;
   absoluteTitle?: boolean;
   image?: string;
+  imageAlt?: string;
+  imageWidth?: number;
+  imageHeight?: number;
 };
 
 export function pageMetadata({
@@ -31,6 +34,9 @@ export function pageMetadata({
   path,
   absoluteTitle = false,
   image = OG_IMAGE,
+  imageAlt,
+  imageWidth = 1200,
+  imageHeight = 630,
 }: PageMetadataInput): Metadata {
   const url = path === "/" ? SITE_URL : `${SITE_URL}${path}`;
   const socialTitle = title.includes(SITE_NAME) ? title : `${title} | ${SITE_NAME}`;
@@ -51,9 +57,9 @@ export function pageMetadata({
       images: [
         {
           url: image,
-          width: 1200,
-          height: 630,
-          alt: socialTitle,
+          width: imageWidth,
+          height: imageHeight,
+          alt: imageAlt ?? socialTitle,
         },
       ],
     },

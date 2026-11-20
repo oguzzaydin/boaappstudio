@@ -32,6 +32,9 @@ export async function generateMetadata({ params }: PageProps) {
         description: app.description,
         path: `/apps/${app.id}`,
         image: app.ogImage,
+        imageAlt: app.ogImageAlt,
+        imageWidth: app.ogImageWidth,
+        imageHeight: app.ogImageHeight,
     });
 }
 

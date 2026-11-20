@@ -37,6 +37,15 @@ export interface AppData {
   applicationCategory?: string;
   operatingSystem?: string;
   ogImage?: string;
+  ogImageAlt?: string;
+  ogImageWidth?: number;
+  ogImageHeight?: number;
+  previewVideo?: {
+    youtubeId: string;
+    title: string;
+    poster: string;
+    posterAlt: string;
+  };
   faqs?: { question: string; answer: string }[];
   // New rich privacy data
   privacyHighlights?: PrivacyHighlight[];
@@ -74,14 +83,14 @@ export const apps: AppData[] = [
       "/screenshots/fake-incoming-call/8.webp"
     ],
     screenshotAlts: [
-      "Looks like a real call. Incoming call screen for a caller named Mom.",
-      "Fake call in one tap. Call setup with caller Mom, Call now, a quick timer, and schedule later.",
-      "10+ call screen styles. Call screen theme choices, including free layouts.",
-      "Voice and script after you answer. In-call screen for a caller named Boss.",
-      "Any caller, any name. Library of caller scenarios such as Mom, Boss, and Courier.",
-      "Schedule it. Cancel anytime. Schedule a call and cancel it before it rings.",
-      "Start from your home screen. Settings for a script after you answer and a home screen shortcut.",
-      "No ads during your call. Call setup shown with no ad on the call screen."
+      "Incoming call from Mom on a phone, with Remind Me, Message, Decline, and a highlighted Accept button. The headline reads: Need a way out? Let your phone ring.",
+      "Fake Call home screen with caller Mom, a Call now button, timers for 5 seconds, 10 seconds, 30 seconds, and 1 minute, and Schedule later. The headline reads: One tap and it rings.",
+      "Schedule screen for Mom with a 30 second timer selected, and a card that says the call is coming up in 6 seconds. The headline reads: Set a timer, cancel anytime.",
+      "Settings screen with Shake to call and Volume trigger switched on, plus System, Light, and Dark appearance choices. The headline reads: Start with a shake or volume keys.",
+      "Caller library with scenarios for Mom pickup, Boss meeting, Courier, Doctor reminder, Friend pickup, and Neighbor. The headline reads: Choose who is calling.",
+      "Caller settings with the name Mom, a Select Contact button, a phone number field, call sound switched on, and a ringtone choice, next to photos labeled Mom, Boss, and Bestie. The headline reads: Any name, photo or ringtone.",
+      "Answered call with Mom at 4 seconds, and a calm pickup line: Hi, can you step outside for a minute? The headline reads: Answer, and a voice speaks.",
+      "Call screen theme picker with Auto match and several layout thumbnails. The headline reads: Looks like your phone's call screen. The line under it says: Auto match, or pick one of 14 layouts."
     ],
     storeLinks: {
       googlePlay: "https://play.google.com/store/apps/details?id=com.boaapps.fakeincomingcall",
@@ -106,6 +115,17 @@ export const apps: AppData[] = [
     applicationCategory: "EntertainmentApplication",
     operatingSystem: "ANDROID",
     ogImage: "/og/fake-incoming-call-prank.jpg",
+    ogImageAlt:
+      "Fake Call graphic with the words Your way out, one tap away, beside a phone showing an incoming call from Mom, with Decline and Accept.",
+    ogImageWidth: 1024,
+    ogImageHeight: 500,
+    previewVideo: {
+      youtubeId: "UPH_dvZbmWk",
+      title: "Fake Call app preview",
+      poster: "/screenshots/fake-incoming-call/preview.webp",
+      posterAlt:
+        "Play the Fake Call app preview. The poster shows an incoming call from Mom with Decline and Accept, and the words Set a timer, cancel anytime.",
+    },
     faqs: [
       {
         question: "Is this a real phone call?",
