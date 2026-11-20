@@ -21,6 +21,20 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+  async redirects() {
+    return [
+      {
+        source: "/privacy-policy/rollbye",
+        destination: "/apps/rollbye/privacy",
+        permanent: true,
+      },
+      {
+        source: "/terms-of-service/rollbye",
+        destination: "/apps/rollbye/terms",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

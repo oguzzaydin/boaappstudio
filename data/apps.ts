@@ -180,6 +180,35 @@ export const apps: AppData[] = [
       }
     ]
   },
+  {
+    id: "rollbye",
+    name: "Rollbye",
+    tagline: "Swipe Photo Cleaner",
+    description:
+      "Review your camera roll month by month, keep or add items to a Delete Box, and free space with on-device tools. Your photos never leave your phone.",
+    version: "1.0.0",
+    icon: "",
+    screenshots: [],
+    storeLinks: {
+      googlePlay: "#",
+      appStore: "#",
+    },
+    monetization: "Free • optional Premium • ads on Android free tier",
+    privacyPolicy: "/apps/rollbye/privacy",
+    features: [
+      "Swipe to keep or clean",
+      "On-device photo tools",
+      "Delete Box with verification",
+      "Nine languages",
+    ],
+    lastUpdated: "November 2026",
+    packageName: "com.boaaps.rollbye",
+    collectionLimits:
+      "Photos and videos are processed on the device only and are not uploaded. Analytics and crash reporting use Firebase after UMP consent. Android free tier may show ads via AdMob. Purchases use RevenueCat.",
+    applicationCategory: "UtilitiesApplication",
+    operatingSystem: "ANDROID, IOS",
+  },
+
   // {
   //   id: "fake-low-battery",
   //   name: "Fake Low Battery",

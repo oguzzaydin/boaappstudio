@@ -1,30 +1,54 @@
 import { MetadataRoute } from "next";
 import { apps } from "@/data/apps";
+import { rollbyeLegalPaths } from "@/data/rollbye-legal";
 import { CONTENT_UPDATED, SITE_URL } from "@/lib/seo";
 
 const BASE_URL = SITE_URL;
+const ROLLBYE_UPDATED = "2026-11-20";
 
 export default function sitemap(): MetadataRoute.Sitemap {
+    const catalogApps = apps.filter((app) => app.id !== "rollbye");
+
     const appUrls = apps.map((app) => ({
         url: `${BASE_URL}/apps/${app.id}`,
-        lastModified: CONTENT_UPDATED,
+        lastModified: app.id === "rollbye" ? ROLLBYE_UPDATED : CONTENT_UPDATED,
         changeFrequency: "weekly" as const,
         priority: 0.8,
     }));
 
-    const appPrivacyUrls = apps.map((app) => ({
+    const appPrivacyUrls = catalogApps.map((app) => ({
         url: `${BASE_URL}/privacy-policy/${app.id}`,
         lastModified: CONTENT_UPDATED,
         changeFrequency: "monthly" as const,
         priority: 0.5,
     }));
 
-    const appTermsUrls = apps.map((app) => ({
+    const appTermsUrls = catalogApps.map((app) => ({
         url: `${BASE_URL}/terms-of-service/${app.id}`,
         lastModified: CONTENT_UPDATED,
         changeFrequency: "monthly" as const,
         priority: 0.5,
     }));
+
+    const rollbyeLegalUrls = [
+        rollbyeLegalPaths.privacy,
+        rollbyeLegalPaths.terms,
+        rollbyeLegalPaths.deleteData,
+        rollbyeLegalPaths.support,
+    ].flatMap((path) => [
+        {
+            url: `${BASE_URL}${path}`,
+            lastModified: ROLLBYE_UPDATED,
+            changeFrequency: "monthly" as const,
+            priority: 0.5,
+        },
+        {
+            url: `${BASE_URL}${path}?lang=tr`,
+            lastModified: ROLLBYE_UPDATED,
+            changeFrequency: "monthly" as const,
+            priority: 0.5,
+        },
+    ]);
 
     return [
         {
@@ -66,5 +90,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
         ...appUrls,
         ...appPrivacyUrls,
         ...appTermsUrls,
+        ...rollbyeLegalUrls,
     ];
 }
