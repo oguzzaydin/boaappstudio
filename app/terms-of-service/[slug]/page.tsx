@@ -6,9 +6,11 @@ import JsonLd from "@/components/JsonLd";
 import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 
 export async function generateStaticParams() {
-    return apps.map((app) => ({
-        slug: app.id,
-    }));
+    return apps
+        .filter((app) => !app.privacyPolicy.startsWith("/apps/"))
+        .map((app) => ({
+            slug: app.id,
+        }));
 }
 
 interface PageProps {

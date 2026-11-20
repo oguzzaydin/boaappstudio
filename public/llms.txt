@@ -8,6 +8,12 @@ Apps are free and ad-supported. They do not require an account. Prank apps simul
 
 - [Fake Incoming Call - Prank](https://boaappstudio.com/apps/fake-incoming-call-prank): Android entertainment app that simulates an incoming call. You can set a caller name and number, choose a ringtone, and schedule a call you can cancel before it rings. It works offline, does not make or receive real phone calls, and does not access contacts or precise location. It is free and may show ads. Ads are not shown during a call. Install: https://play.google.com/store/apps/details?id=com.boaapps.fakeincomingcall
 
+- [Rollbye](https://boaappstudio.com/apps/rollbye): Photo and video cleaner. Media stays on the device. Optional Premium. Android free tier may show one ad. Firebase Analytics and Crashlytics start after UMP consent.
+- [Rollbye privacy policy](https://boaappstudio.com/apps/rollbye/privacy)
+- [Rollbye terms of use](https://boaappstudio.com/apps/rollbye/terms)
+- [Rollbye delete data](https://boaappstudio.com/apps/rollbye/delete-data)
+- [Rollbye support](https://boaappstudio.com/apps/rollbye/support)
+
 ## Pages
 
 - [Home](https://boaappstudio.com/)
