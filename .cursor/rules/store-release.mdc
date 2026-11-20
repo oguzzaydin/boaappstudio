@@ -1,0 +1,54 @@
+---
+description: Play, AppGallery, and App Store release checklists plus website and app-ads.txt
+globs: "{docs,android,ios}/**"
+alwaysApply: false
+---
+
+# Store release
+
+Follow `docs/release-checklist.md` and `docs/store-compliance.md`. An app or update is **not release-ready** if any of the items below is missing. Prepare the package; do **not** press Submit / Roll out without the owner's approval.
+
+## Website (blocking)
+
+Before submission, these URLs must be live and linked from the store listing and from the app:
+
+- `https://boaappstudio.com/apps/<appslug>`
+- `https://boaappstudio.com/apps/<appslug>/privacy`
+- `https://boaappstudio.com/apps/<appslug>/terms`
+- `https://boaappstudio.com/apps/<appslug>/delete-data`
+- `https://boaappstudio.com/app-ads.txt` updated with the AdMob publisher ID
+
+Also refresh the sitemap. Do not use a personal GitHub Pages policy URL.
+
+## Google Play
+
+- Target API level meets the current Play requirement. `minSdk` matches the PRD.
+- Data Safety form matches the actual SDKs (ads, analytics, crash, in-app purchases, advertising ID).
+- Permissions are justified. Families / children policies apply only if the audience includes them — these apps default to 13+ / 18+ as declared, never "designed for children" if they show ads.
+- Ads policy: no accidental clicks, no misleading claims, no unclosable ads, UMP used where required.
+- Metadata: no keyword stuffing, no unattributed "best app" or fake rating claims, screenshots show real UI.
+- Version `x.y.z+build` in `pubspec.yaml`; the build number is higher than any uploaded AAB.
+- Signed release AAB with Play App Signing. Obfuscation symbols retained.
+- Rollout path: internal testing → closed testing when required → staged production (10–20%, then 100%). Pause if crashes or 1-star reviews spike in the first 48 hours.
+
+## Apple App Store
+
+- Privacy labels match the code. `PrivacyInfo.xcprivacy` is present.
+- ATT only if personalized ads are requested; denial is honored.
+- Restore purchases is visible on the paywall. Prices and auto-renew terms are complete (guideline 3.1.2).
+- No placeholder content, no hidden debug menus in the submitted build (2.1).
+- The app must not look like a reskin of another Boa Apps Studio title (4.3). Unique name, icon, screenshots, and copy.
+- Review notes explain what the app does, that there is no login, and where to find the paywall.
+
+## Huawei AppGallery
+
+- The app must not crash on devices without GMS. Provide HMS fallbacks (ads / analytics / IAP) or a documented graceful degradation.
+- Follow AppGallery privacy, ads, and metadata rules. Listing languages and screenshots are prepared in the same pack as Play.
+
+## Launch pack (same release)
+
+Store screenshots (EN + TR), feature graphic, 1024 icon, 15–30 s store preview video when useful, release notes, and the social / Product Hunt / Reddit launch drafts. Drafts go to the owner for approval; do not post.
+
+## After release
+
+Watch crash-free rate, ANR, reviews, and ads revenue. If a policy rejection arrives, fix the root cause, add a lesson to `LEARNINGS.md`, and only then prepare a resubmission or appeal draft.

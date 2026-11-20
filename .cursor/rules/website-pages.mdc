@@ -1,0 +1,30 @@
+---
+description: Boa Apps Studio website pages, legal URLs, and app-ads.txt
+alwaysApply: true
+---
+
+# Website (boaappstudio.com)
+
+This repository is the company **Next.js website**, not a Flutter app. Do not apply Flutter architecture, ARB, golden, or Riverpod rules here.
+
+## Required URL shape
+
+Before any app is submitted to a store, these HTTPS pages must be live and linked from the listing and from the app:
+
+- `https://boaappstudio.com/apps/<appslug>`
+- `https://boaappstudio.com/apps/<appslug>/privacy`
+- `https://boaappstudio.com/apps/<appslug>/terms`
+- `https://boaappstudio.com/apps/<appslug>/delete-data`
+
+Existing `/privacy-policy/<id>` and `/terms-of-service/<id>` routes may stay as redirects so old links do not break. Do not point a store listing or in-app legal link at a personal GitHub Pages policy, or at a different domain such as `boaaps.com`, unless a 301 to the canonical URL is already live.
+
+Keep `https://boaappstudio.com/app-ads.txt` current with the AdMob publisher ID.
+
+Pages must be reachable without login. Update the sitemap when you add a slug.
+
+## Content
+
+- Privacy, terms, and delete-data pages ship in **EN and TR** at minimum.
+- Do not invent SDK collection. The policy must match the app binary and the Data Safety / privacy labels.
+- Do not put real AdMob unit IDs, API keys, or secrets in this repo.
+- Do not publish, change DNS, or add `app-ads.txt` publisher lines without the owner's approval.
