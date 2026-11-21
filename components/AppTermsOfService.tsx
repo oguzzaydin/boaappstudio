@@ -3,7 +3,8 @@ import Link from "next/link";
 import JsonLd from "@/components/JsonLd";
 import LocaleSwitch from "@/components/LocaleSwitch";
 import type { AppData } from "@/data/apps";
-import type { LegalLocale } from "@/data/rollbye-legal";
+import type { LegalBlock, LegalLocale } from "@/data/rollbye-legal";
+import { localeHref } from "@/data/rollbye-legal";
 import { breadcrumbJsonLd } from "@/lib/seo";
 
 const defaultLastUpdated = {
@@ -145,7 +146,15 @@ type AppTermsOfServiceProps = {
     showLocaleSwitch?: boolean;
     lastUpdated?: string;
     privacyNote?: string;
+    /** App-specific sections rendered after "Use License"; numbering shifts. */
+    extraSections?: LegalBlock[];
+    /** Optional localized privacy link; defaults to app.privacyPolicy. */
+    privacyHref?: string;
 };
+
+type BaseSectionKey = "s1" | "s2" | "s3" | "s4" | "s5" | "s6" | "s7";
+
+const stripNumber = (heading: string) => heading.replace(/^\d+\.\s*/, "");
 
 export default function AppTermsOfService({
     app,
@@ -154,9 +163,25 @@ export default function AppTermsOfService({
     showLocaleSwitch = false,
     lastUpdated,
     privacyNote,
+    extraSections = [],
+    privacyHref,
 }: AppTermsOfServiceProps) {
     const t = chrome[locale];
     const updated = lastUpdated ?? defaultLastUpdated[locale];
+    const extraIds = extraSections.map((_, index) => `app-terms-${index + 1}`);
+    const shift = extraSections.length;
+    const heading = (key: BaseSectionKey) => {
+        const base = Number(key.slice(1));
+        const number = base <= 2 ? base : base + shift;
+        return `${number}. ${stripNumber(t[key])}`;
+    };
+    const navItems = t.items.map((label, index) => ({ id: sidebarIds[index], label }));
+    navItems.splice(
+        2,
+        0,
+        ...extraSections.map((block, index) => ({ id: extraIds[index], label: block.heading }))
+    );
+    const appHref = showLocaleSwitch ? localeHref(`/apps/${app.id}`, locale) : `/apps/${app.id}`;
 
     return (
         <div className="min-h-screen bg-slate-50 pb-20">
@@ -170,7 +195,7 @@ export default function AppTermsOfService({
             {/* Top Navigation */}
             <div className="bg-white border-b border-slate-200">
                 <div className={"container mx-auto px-4 py-4 sm:px-6 lg:px-8" + (showLocaleSwitch ? " flex items-center justify-between gap-4" : "")}>
-                    <Link href={`/apps/${app.id}`} className="inline-flex items-center text-sm font-semibold text-slate-500 hover:text-slate-900 transition-colors">
+                    <Link href={appHref} className="inline-flex items-center text-sm font-semibold text-slate-500 hover:text-slate-900 transition-colors">
                         <ArrowLeft className="mr-2 h-4 w-4" /> {t.back(app.name)}
                     </Link>
                     {showLocaleSwitch ? <LocaleSwitch path={canonicalPath} locale={locale} /> : null}
@@ -195,13 +220,13 @@ export default function AppTermsOfService({
                         <div className="sticky top-12">
                             <h3 className="text-xs font-bold uppercase tracking-wider text-slate-500 mb-4 ml-3">{t.contents}</h3>
                             <nav className="space-y-1">
-                                {t.items.map((item, index) => (
+                                {navItems.map((item) => (
                                     <a
-                                        key={sidebarIds[index]}
-                                        href={`#${sidebarIds[index]}`}
+                                        key={item.id}
+                                        href={`#${item.id}`}
                                         className="block px-3 py-2 text-sm font-medium text-slate-600 hover:text-blue-600 hover:bg-white rounded-lg transition-colors"
                                     >
-                                        {item}
+                                        {item.label}
                                     </a>
                                 ))}
                             </nav>
@@ -212,7 +237,7 @@ export default function AppTermsOfService({
                     <div className="lg:col-span-9 space-y-16">
 
                         <section id="acceptance-of-terms" className="scroll-mt-24">
-                            <h2 className="text-2xl font-bold text-slate-900 mb-4">{t.s1}</h2>
+                            <h2 className="text-2xl font-bold text-slate-900 mb-4">{heading("s1")}</h2>
                             <p className="text-slate-600 leading-relaxed mb-4">
                                 {t.s1p1(app.name)}
                             </p>
@@ -222,7 +247,7 @@ export default function AppTermsOfService({
                         </section>
 
                         <section id="use-license" className="scroll-mt-24">
-                            <h2 className="text-2xl font-bold text-slate-900 mb-4">{t.s2}</h2>
+                            <h2 className="text-2xl font-bold text-slate-900 mb-4">{heading("s2")}</h2>
                             <p className="text-slate-600 leading-relaxed mb-4">
                                 {t.s2p1}
                             </p>
@@ -244,14 +269,37 @@ export default function AppTermsOfService({
                             </div>
                         </section>
 
+                        {extraSections.map((block, index) => (
+                            <section key={extraIds[index]} id={extraIds[index]} className="scroll-mt-24">
+                                <h2 className="text-2xl font-bold text-slate-900 mb-4">
+                                    {`${index + 3}. ${block.heading}`}
+                                </h2>
+                                {block.paragraphs?.map((paragraph) => (
+                                    <p key={paragraph} className="text-slate-600 leading-relaxed mb-4 last:mb-0">
+                                        {paragraph}
+                                    </p>
+                                ))}
+                                {block.bullets && block.bullets.length > 0 ? (
+                                    <ul className="space-y-3 mt-4">
+                                        {block.bullets.map((item) => (
+                                            <li key={item} className="flex items-start text-slate-600 leading-relaxed">
+                                                <span className="mr-3 mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-blue-400" />
+                                                {item}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                ) : null}
+                            </section>
+                        ))}
+
                         <section id="privacy-data" className="scroll-mt-24">
-                            <h2 className="text-2xl font-bold text-slate-900 mb-4">{t.s3}</h2>
+                            <h2 className="text-2xl font-bold text-slate-900 mb-4">{heading("s3")}</h2>
                             <p className="text-slate-600 leading-relaxed mb-4">
                                 {t.s3p1}
                             </p>
                             <p className="text-slate-600 leading-relaxed">
                                 {t.s3p2a}
-                                <Link href={app.privacyPolicy} className="text-blue-600 hover:underline font-medium">{t.s3p2b}</Link>
+                                <Link href={privacyHref ?? app.privacyPolicy} className="text-blue-600 hover:underline font-medium">{t.s3p2b}</Link>
                                 {t.s3p2c}
                             </p>
                             {privacyNote ? (
@@ -260,7 +308,7 @@ export default function AppTermsOfService({
                         </section>
 
                         <section id="user-conduct" className="scroll-mt-24">
-                            <h2 className="text-2xl font-bold text-slate-900 mb-4">{t.s4}</h2>
+                            <h2 className="text-2xl font-bold text-slate-900 mb-4">{heading("s4")}</h2>
                             <p className="text-slate-600 leading-relaxed mb-4">
                                 {t.s4p1}
                             </p>
@@ -270,7 +318,7 @@ export default function AppTermsOfService({
                         </section>
 
                         <section id="disclaimer" className="scroll-mt-24">
-                            <h2 className="text-2xl font-bold text-slate-900 mb-4">{t.s5}</h2>
+                            <h2 className="text-2xl font-bold text-slate-900 mb-4">{heading("s5")}</h2>
                             <p className="text-slate-600 leading-relaxed mb-4">
                                 {t.s5p1}
                             </p>
@@ -280,14 +328,14 @@ export default function AppTermsOfService({
                         </section>
 
                         <section id="limitation-of-liability" className="scroll-mt-24">
-                            <h2 className="text-2xl font-bold text-slate-900 mb-4">{t.s6}</h2>
+                            <h2 className="text-2xl font-bold text-slate-900 mb-4">{heading("s6")}</h2>
                             <p className="text-slate-600 leading-relaxed">
                                 {t.s6p1}
                             </p>
                         </section>
 
                         <section id="contact-us" className="scroll-mt-24">
-                            <h2 className="text-2xl font-bold text-slate-900 mb-6">{t.s7}</h2>
+                            <h2 className="text-2xl font-bold text-slate-900 mb-6">{heading("s7")}</h2>
                             <p className="text-slate-600 leading-relaxed mb-6">
                                 {t.s7p1}
                             </p>

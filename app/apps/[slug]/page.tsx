@@ -3,10 +3,13 @@ import { notFound } from "next/navigation";
 import AppLanding from "@/components/AppLanding";
 import { pageMetadata } from "@/lib/seo";
 
+// Apps with their own folder under app/apps/ (EN/TR legal pages).
+const DEDICATED_APP_IDS = ["rollbye", "fakeincomingcall"];
+
 // SSG: Generate params for catalog apps that do not have a dedicated folder
 export async function generateStaticParams() {
     return apps
-        .filter((app) => app.id !== "rollbye")
+        .filter((app) => !DEDICATED_APP_IDS.includes(app.id))
         .map((app) => ({
             slug: app.id,
         }));

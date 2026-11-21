@@ -1,17 +1,24 @@
 import { MetadataRoute } from "next";
 import { apps } from "@/data/apps";
 import { rollbyeLegalPaths } from "@/data/rollbye-legal";
+import { FIC_APP_ID, FIC_UPDATED, ficLegalPaths } from "@/data/fakeincomingcall-legal";
 import { CONTENT_UPDATED, SITE_URL } from "@/lib/seo";
 
 const BASE_URL = SITE_URL;
 const ROLLBYE_UPDATED = "2026-11-20";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-    const catalogApps = apps.filter((app) => app.id !== "rollbye");
+    // Apps whose legal pages live under /apps/<slug>/ are listed separately below.
+    const catalogApps = apps.filter((app) => !app.privacyPolicy.startsWith("/apps/"));
 
     const appUrls = apps.map((app) => ({
         url: `${BASE_URL}/apps/${app.id}`,
-        lastModified: app.id === "rollbye" ? ROLLBYE_UPDATED : CONTENT_UPDATED,
+        lastModified:
+            app.id === "rollbye"
+                ? ROLLBYE_UPDATED
+                : app.id === FIC_APP_ID
+                  ? FIC_UPDATED
+                  : CONTENT_UPDATED,
         changeFrequency: "weekly" as const,
         priority: 0.8,
     }));
@@ -45,6 +52,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
         {
             url: `${BASE_URL}${path}?lang=tr`,
             lastModified: ROLLBYE_UPDATED,
+            changeFrequency: "monthly" as const,
+            priority: 0.5,
+        },
+    ]);
+
+    const ficLegalUrls = [
+        ficLegalPaths.privacy,
+        ficLegalPaths.terms,
+        ficLegalPaths.deleteData,
+    ].flatMap((path) => [
+        {
+            url: `${BASE_URL}${path}`,
+            lastModified: FIC_UPDATED,
+            changeFrequency: "monthly" as const,
+            priority: 0.5,
+        },
+        {
+            url: `${BASE_URL}${path}?lang=tr`,
+            lastModified: FIC_UPDATED,
             changeFrequency: "monthly" as const,
             priority: 0.5,
         },
@@ -91,5 +117,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
         ...appPrivacyUrls,
         ...appTermsUrls,
         ...rollbyeLegalUrls,
+        ...ficLegalUrls,
     ];
 }

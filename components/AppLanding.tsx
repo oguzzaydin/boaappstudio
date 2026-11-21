@@ -1,4 +1,4 @@
-import { ArrowLeft, CheckCircle, Shield, Smartphone, Info, Mail, Play } from "lucide-react";
+import { ArrowLeft, CheckCircle, Shield, Smartphone, Info, Mail, Play, Trash2 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import ScreenshotCarousel from "@/components/ScreenshotCarousel";
@@ -27,6 +27,7 @@ const landingCopy = {
         privacyLegal: "Privacy & Legal",
         privacyPolicy: "Privacy Policy",
         terms: "Terms of Service",
+        deleteData: "Delete your data",
         dataUsage: "Data Usage:",
         dataUsageDefault:
             "We respect your privacy. This app does not collect precise location data or access your contacts. Advertising IDs may be used for ad relevance.",
@@ -50,6 +51,7 @@ const landingCopy = {
         privacyLegal: "Gizlilik ve yasal",
         privacyPolicy: "Gizlilik politikası",
         terms: "Kullanım koşulları",
+        deleteData: "Verilerinizi silin",
         dataUsage: "Veri kullanımı:",
         dataUsageDefault:
             "Gizliliğine saygı duyuyoruz. Bu uygulama hassas konum toplamaz ve kişilerine erişmez. Reklam kimlikleri, reklamların ilgisini artırmak için kullanılabilir.",
@@ -70,6 +72,7 @@ export default function AppLanding({ app, locale = "en", showLocaleSwitch = fals
     const t = landingCopy[locale];
     const termsHref = localeHref(app.termsUrl ?? `/terms-of-service/${app.id}`, locale);
     const privacyHref = localeHref(app.privacyPolicy, locale);
+    const deleteDataHref = app.deleteDataUrl ? localeHref(app.deleteDataUrl, locale) : null;
     const softwareApp = appJsonLd(app);
 
     return (
@@ -242,6 +245,14 @@ export default function AppLanding({ app, locale = "en", showLocaleSwitch = fals
                                         <span className="font-medium">{t.terms}</span>
                                     </Link>
                                 </li>
+                                {deleteDataHref ? (
+                                    <li>
+                                        <Link href={deleteDataHref} className="flex items-center group text-slate-600 hover:text-blue-600 transition-colors">
+                                            <Trash2 className="mr-3 h-4 w-4 text-slate-400 group-hover:text-blue-600" />
+                                            <span className="font-medium">{t.deleteData}</span>
+                                        </Link>
+                                    </li>
+                                ) : null}
                             </ul>
 
                             <hr className="my-6 border-slate-100" />
