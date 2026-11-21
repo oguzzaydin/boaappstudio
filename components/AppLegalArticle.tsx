@@ -13,6 +13,10 @@ type AppLegalArticleProps = {
     path: string;
     doc: LegalDoc;
     breadcrumbName: string;
+    /** Related legal pages for this app. Defaults to the Rollbye set. */
+    links?: { href: string; label: string }[];
+    /** Label for the back link. Defaults to the Rollbye label. */
+    backLabel?: string;
 };
 
 function slugify(heading: string) {
@@ -53,14 +57,18 @@ export default function AppLegalArticle({
     path,
     doc,
     breadcrumbName,
+    links,
+    backLabel,
 }: AppLegalArticleProps) {
     const labels = ui[locale];
-    const related = [
-        { href: rollbyeLegalPaths.privacy, label: labels.privacy },
-        { href: rollbyeLegalPaths.terms, label: labels.terms },
-        { href: rollbyeLegalPaths.deleteData, label: labels.deleteData },
-        { href: rollbyeLegalPaths.support, label: labels.support },
-    ].filter((item) => item.href !== path);
+    const related = (
+        links ?? [
+            { href: rollbyeLegalPaths.privacy, label: labels.privacy },
+            { href: rollbyeLegalPaths.terms, label: labels.terms },
+            { href: rollbyeLegalPaths.deleteData, label: labels.deleteData },
+            { href: rollbyeLegalPaths.support, label: labels.support },
+        ]
+    ).filter((item) => item.href !== path);
 
     return (
         <div className="min-h-screen bg-slate-50 pb-20">
@@ -77,7 +85,7 @@ export default function AppLegalArticle({
                         href={localeHref(`/apps/${app.id}`, locale)}
                         className="inline-flex items-center text-sm font-semibold text-slate-500 hover:text-slate-900 transition-colors"
                     >
-                        <ArrowLeft className="mr-2 h-4 w-4" /> {labels.backToApp}
+                        <ArrowLeft className="mr-2 h-4 w-4" /> {backLabel ?? labels.backToApp}
                     </Link>
                     <LocaleSwitch path={path} locale={locale} />
                 </div>

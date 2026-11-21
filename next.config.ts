@@ -33,6 +33,21 @@ const nextConfig: NextConfig = {
         destination: "/apps/rollbye/terms",
         permanent: true,
       },
+      {
+        source: "/privacy-policy/fake-incoming-call-prank",
+        destination: "/apps/fakeincomingcall/privacy",
+        permanent: true,
+      },
+      {
+        source: "/terms-of-service/fake-incoming-call-prank",
+        destination: "/apps/fakeincomingcall/terms",
+        permanent: true,
+      },
+      {
+        source: "/apps/fake-incoming-call-prank",
+        destination: "/apps/fakeincomingcall",
+        permanent: true,
+      },
     ];
   },
 };

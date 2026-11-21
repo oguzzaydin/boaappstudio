@@ -1,5 +1,6 @@
 import type { AppData } from "./apps";
 import type { LegalLocale } from "./rollbye-legal";
+import { FIC_APP_ID, fakeIncomingCallTr } from "./fakeincomingcall-legal";
 
 export const rollbyeTr: Partial<AppData> = {
   tagline: "Kaydırarak Temizle",
@@ -148,6 +149,9 @@ export const rollbyeTr: Partial<AppData> = {
 export function applyAppLocale(app: AppData, locale: LegalLocale): AppData {
   if (locale === "tr" && app.id === "rollbye") {
     return { ...app, ...rollbyeTr };
+  }
+  if (locale === "tr" && app.id === FIC_APP_ID) {
+    return { ...app, ...fakeIncomingCallTr };
   }
   return app;
 }

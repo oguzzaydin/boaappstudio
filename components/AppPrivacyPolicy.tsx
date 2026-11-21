@@ -1,11 +1,12 @@
 import { ArrowLeft, Shield, Mail, BarChart, Database, Lock } from "lucide-react";
-import { Bug, CheckCircle, Eye, Smartphone, XCircle, MapPin } from "lucide-react";
+import { Bug, CheckCircle, Eye, Smartphone, XCircle, MapPin, FileText } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import JsonLd from "@/components/JsonLd";
 import LocaleSwitch from "@/components/LocaleSwitch";
 import type { AppData } from "@/data/apps";
-import type { LegalLocale } from "@/data/rollbye-legal";
+import type { LegalBlock, LegalLocale } from "@/data/rollbye-legal";
+import { localeHref } from "@/data/rollbye-legal";
 import { breadcrumbJsonLd } from "@/lib/seo";
 
 const IconMap = {
@@ -154,18 +155,31 @@ type AppPrivacyPolicyProps = {
     canonicalPath: string;
     locale?: LegalLocale;
     showLocaleSwitch?: boolean;
+    /** App-specific sections rendered after "Advertising & Analytics". */
+    extraSections?: LegalBlock[];
 };
+
+const NO_REAL_CALLS_TITLES = ["No Real Calls", "Gerçek arama yok"];
 
 export default function AppPrivacyPolicy({
     app,
     canonicalPath,
     locale = "en",
     showLocaleSwitch = false,
+    extraSections = [],
 }: AppPrivacyPolicyProps) {
     const t = chrome[locale];
     const noRealCalls = Boolean(
-        app.privacyHighlights?.some((item) => item.title === "No Real Calls")
+        app.privacyHighlights?.some((item) => NO_REAL_CALLS_TITLES.includes(item.title))
     );
+    const extraIds = extraSections.map((_, index) => `app-section-${index + 1}`);
+    const navItems = t.items.map((label, index) => ({ id: sidebarIds[index], label }));
+    navItems.splice(
+        4,
+        0,
+        ...extraSections.map((block, index) => ({ id: extraIds[index], label: block.heading }))
+    );
+    const appHref = showLocaleSwitch ? localeHref(`/apps/${app.id}`, locale) : `/apps/${app.id}`;
     const advertisingServices = app.advertisingServices ?? [defaultAdmob];
     const advertisingIntro = app.advertisingIntro ?? t.advertisingIntroDefault;
 
@@ -181,7 +195,7 @@ export default function AppPrivacyPolicy({
             {/* Top Navigation */}
             <div className="bg-white border-b border-slate-200">
                 <div className={"container mx-auto px-4 py-4 sm:px-6 lg:px-8" + (showLocaleSwitch ? " flex items-center justify-between gap-4" : "")}>
-                    <Link href={`/apps/${app.id}`} className="inline-flex items-center text-sm font-semibold text-slate-500 hover:text-slate-900 transition-colors">
+                    <Link href={appHref} className="inline-flex items-center text-sm font-semibold text-slate-500 hover:text-slate-900 transition-colors">
                         <ArrowLeft className="mr-2 h-4 w-4" /> {t.back(app.name)}
                     </Link>
                     {showLocaleSwitch ? <LocaleSwitch path={canonicalPath} locale={locale} /> : null}
@@ -195,13 +209,13 @@ export default function AppPrivacyPolicy({
                         <div className="sticky top-24 space-y-8">
                             <nav className="space-y-1">
                                 <h3 className="text-xs font-bold uppercase tracking-wider text-slate-500 mb-4 ml-3">{t.contents}</h3>
-                                {t.items.map((item, index) => (
+                                {navItems.map((item) => (
                                     <a
-                                        key={sidebarIds[index]}
-                                        href={`#${sidebarIds[index]}`}
+                                        key={item.id}
+                                        href={`#${item.id}`}
                                         className="block px-3 py-2 text-sm font-medium text-slate-600 hover:text-blue-600 hover:bg-white rounded-lg transition-colors"
                                     >
-                                        {item}
+                                        {item.label}
                                     </a>
                                 ))}
                             </nav>
@@ -326,6 +340,31 @@ export default function AppPrivacyPolicy({
                             </div>
                         </div>
 
+                        {/* App-specific sections */}
+                        {extraSections.map((block, index) => (
+                            <div key={extraIds[index]} id={extraIds[index]} className="scroll-mt-24">
+                                <div className="flex items-center gap-3 mb-6">
+                                    <FileText className="h-6 w-6 text-blue-600" />
+                                    <h3 className="text-xl font-bold text-slate-900">{block.heading}</h3>
+                                </div>
+                                <div className="space-y-4 text-slate-600 leading-relaxed">
+                                    {block.paragraphs?.map((paragraph) => (
+                                        <p key={paragraph}>{paragraph}</p>
+                                    ))}
+                                    {block.bullets && block.bullets.length > 0 ? (
+                                        <ul className="space-y-3">
+                                            {block.bullets.map((item) => (
+                                                <li key={item} className="flex items-start">
+                                                    <span className="mr-3 mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-blue-400" />
+                                                    <span>{item}</span>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    ) : null}
+                                </div>
+                            </div>
+                        ))}
+
                         {/* Data Security */}
                         <div id="data-security">
                             <div className="flex items-center gap-3 mb-6">
@@ -383,7 +422,7 @@ export default function AppPrivacyPolicy({
                             {app.deleteDataUrl ? (
                                 <p className="text-slate-600 leading-relaxed mt-4">
                                     {t.deletePage}{" "}
-                                    <Link href={app.deleteDataUrl} className="font-bold text-blue-600 hover:underline">
+                                    <Link href={showLocaleSwitch ? localeHref(app.deleteDataUrl, locale) : app.deleteDataUrl} className="font-bold text-blue-600 hover:underline">
                                         {t.deletePageLink}
                                     </Link>
                                     {locale === "tr" ? " inceleyebilirsiniz." : "."}

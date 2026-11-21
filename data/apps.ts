@@ -65,7 +65,7 @@ export interface AppData {
 
 export const apps: AppData[] = [
   {
-    id: "fake-incoming-call-prank",
+    id: "fakeincomingcall",
     name: "Fake Incoming Call - Prank",
     tagline: "Simulate incoming calls to escape awkward situations.",
     description:
@@ -97,21 +97,38 @@ export const apps: AppData[] = [
       appStore: "#"
     },
     monetization: "Free • Ad-supported",
-    adNote: "Ads are not shown during a call.",
-    privacyPolicy: "/privacy-policy/fake-incoming-call-prank",
+    adNote:
+      "Ads are not shown during setup or during a fake call. Where available, an optional one-time purchase removes all ads.",
+    privacyPolicy: "/apps/fakeincomingcall/privacy",
+    termsUrl: "/apps/fakeincomingcall/terms",
+    deleteDataUrl: "/apps/fakeincomingcall/delete-data",
     features: [
       "Fake incoming call simulation",
       "Custom caller name and number",
       "Selectable ringtone",
       "Schedule a call and cancel before it rings",
       "No ads during a call",
-      "Works fully offline",
+      "Core features work offline",
       "For entertainment purposes only"
     ],
-    lastUpdated: "November 2026",
+    lastUpdated: "November 21, 2026",
     packageName: "com.boaapps.fakeincomingcall",
     collectionLimits:
-      "This app does not collect contacts, photos, location, or call logs, and it does not require an account.",
+      "The app does not request permission to read your contacts, call log, precise location, or photo library, and it does not require an account. Callers, schedules, and settings are stored only on your device.",
+    dataUsageNote:
+      "We respect your privacy. Your callers, schedules, and settings stay on your device, and there is no account. The app does not make real calls or read your contacts or location. An advertising ID may be used for ads; where required, consent is requested first.",
+    advertisingIntro:
+      "To keep the app free, we use advertising and analytics services. Ads are not shown during setup or during an active fake call.",
+    advertisingServices: [
+      {
+        name: "Google AdMob",
+        description:
+          "We use Google AdMob to show app-open, interstitial, and (only when you choose) rewarded ads. AdMob may process the advertising ID and technical data. Where required, the Google UMP consent form is shown before ads."
+      }
+    ],
+    childrenPrivacyNote:
+      "Fake Incoming Call - Prank is an entertainment app intended for users aged 13 and over and is not directed at children under 13. We do not knowingly collect personal data from children under 13. If you believe a child under 13 has provided personal data through the app, contact us and we will delete it. We do not sell, rent, or trade your personal data to third parties.",
+    locales: ["en", "tr"],
     applicationCategory: "EntertainmentApplication",
     operatingSystem: "ANDROID",
     ogImage: "/og/fake-incoming-call-prank.jpg",
@@ -135,12 +152,12 @@ export const apps: AppData[] = [
       {
         question: "Is the app free?",
         answer:
-          "Yes. The app is free and ad-supported. It may display ads from third-party partners such as Google AdMob. Ads are not shown during a call."
+          "Yes. The app is free and ad-supported. It may display ads from Google AdMob. Ads are not shown during a call. Where available, you can remove all ads with an optional one-time purchase."
       },
       {
         question: "Does the app access my contacts or location?",
         answer:
-          "No. The app does not access your contacts and does not collect precise location data. Advertising IDs may be used for ad relevance."
+          "No. The app does not request contacts or location permissions. If you use \"Pick contact\", only the name and number of the contact you choose are passed to the app and saved on your device. Advertising IDs may be used for ads."
       },
       {
         question: "Can I set the caller name and a timer?",
@@ -149,7 +166,7 @@ export const apps: AppData[] = [
       },
       {
         question: "Does the app work offline?",
-        answer: "Yes. The app works fully offline."
+        answer: "Yes. The core features work fully offline."
       }
     ],
     privacyHighlights: [
@@ -168,38 +185,50 @@ export const apps: AppData[] = [
         color: "blue"
       },
       {
-        icon: "Eye",
-        title: "Transparent Usage",
+        icon: "Smartphone",
+        title: "Data Stays on Device",
         description:
-          "All app behavior is clearly described and visible to the user.",
+          "There is no account. Callers, schedules, and settings are stored only on your phone.",
         color: "purple"
       }
     ],
     dataCollection: [
       {
+        icon: "Smartphone",
+        title: "App data on your device",
+        description:
+          "Caller names, numbers, photos, ringtones, and schedules are stored only on your device and are not sent to us."
+      },
+      {
         icon: "Ad",
         title: "Advertising Data",
         description:
-          "The app may display ads provided by third-party advertising partners such as Google AdMob. Ads are not shown during a call."
+          "Google AdMob may process the advertising ID and technical data. Ads are not shown during setup or during a call."
       },
       {
         icon: "BarChart",
         title: "Usage statistics",
         description:
-          "Google Firebase Analytics is used for usage statistics and device identifiers."
+          "Google Firebase Analytics collects usage events and an app-instance identifier."
       },
       {
         icon: "Bug",
         title: "Crash logs",
         description:
-          "Google Firebase Crashlytics is used for crash logs."
+          "Google Firebase Crashlytics collects crash logs and device state."
+      },
+      {
+        icon: "Database",
+        title: "Purchases",
+        description:
+          "The optional \"Remove ads\" purchase is processed by Google Play and verified with RevenueCat using an anonymous app user ID. Your card details never reach us."
       }
     ],
     analyticsServices: [
       {
         name: "Google Firebase Analytics",
         description:
-          "We use Google Firebase Analytics for usage statistics. It may collect device identifiers and information about how the app is used."
+          "We use Google Firebase Analytics for usage statistics so we can improve the app. It may collect an app-instance identifier and information about how the app is used."
       },
       {
         name: "Google Firebase Crashlytics",
