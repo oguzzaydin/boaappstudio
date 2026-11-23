@@ -81,7 +81,7 @@ export const privacyDocs: Record<LegalLocale, LegalDoc> = {
       {
         heading: "2. What the app does",
         paragraphs: [
-          "Rollbye helps you review photos and videos stored on your device, month by month, keep items or move them into a Delete Box, and optionally use on-device tools (for example screenshots, large videos, similar or blurry groups). Optional Premium is sold through the App Store or Google Play. The Android free tier may show a single native ad on the month-summary screen.",
+          "Rollbye helps you review photos and videos stored on your device, month by month, keep items or move them into a Delete Box, and optionally use on-device tools (for example screenshots, large videos, similar or blurry groups). Optional Premium is sold through the App Store or Google Play. The free version on Android and iOS may show a single native ad on the month-summary screen.",
         ],
       },
       {
@@ -94,13 +94,13 @@ export const privacyDocs: Record<LegalLocale, LegalDoc> = {
       {
         heading: "4. Data processed by us and our partners",
         paragraphs: [
-          "Rollbye itself does not upload your media. The following categories may be processed depending on platform, your consent, and whether you use purchases or the Android free tier.",
+          "Rollbye itself does not upload your media. The following categories may be processed depending on platform, your consent, and whether you use purchases or the free (ad-supported) tier.",
         ],
         bullets: [
           "Firebase Analytics (Android and iOS): app usage events and technical identifiers (such as an app-instance or installation identifier, app version, and device or locale information). Used to understand feature use and improve the product. Initialized only after you grant consent in the Google User Messaging Platform (UMP) form, where that form is shown.",
           "Firebase Crashlytics (Android and iOS): crash logs, stack traces, and technical identifiers needed to diagnose failures. Initialized only after UMP consent, where that form is shown.",
-          "Google AdMob and the advertising ID (Android free tier only): a native ad may appear on the month-summary screen. AdMob may process the advertising ID and standard advertising data as described by Google. iOS builds do not include an ads SDK.",
-          "UMP consent (required for ads on Android, and for starting Analytics and Crashlytics where we show the form): your choices are stored so we can honour them. You can change them later as described below.",
+          "Google AdMob and advertising identifiers (free tier on Android and iOS; not in Premium or the Huawei AppGallery build): a single native ad may appear on the month-summary screen. AdMob may process the advertising identifier, advertising data (such as ad impressions and interactions), device and app information, approximate location derived from your IP address, and diagnostics, as described by Google. Google may share this advertising data with its advertising partners under Google’s policies. On Android this is the advertising ID. On iOS, AdMob may access the device’s advertising identifier (IDFA) only if you allow tracking in Apple’s App Tracking Transparency (ATT) prompt; if you decline, the IDFA is not available and only non-personalised ads are shown. On iOS the App Store privacy label lists advertising data and the device identifier as used for tracking.",
+          "UMP consent and iOS ATT permission (UMP is required for ads on Android and iOS and for starting Analytics and Crashlytics where we show the form; on iOS the ATT prompt is shown after UMP and a short in-app explanation, and only once): your choices are stored so we can honour them. You can change them later as described below.",
           "RevenueCat and the app stores: payments are processed by Apple or Google. RevenueCat receives an anonymous app user identifier and purchase or entitlement status so we can unlock Premium and restore purchases. RevenueCat does not receive your photos or videos.",
           "Support email: if you write to us, we process your email address and the content of your message in order to reply. We do not use support mail for advertising.",
           "Local notifications and local settings: reminder schedules, language, theme, Delete Box identifiers, and similar progress stay on the device.",
@@ -109,8 +109,8 @@ export const privacyDocs: Record<LegalLocale, LegalDoc> = {
       {
         heading: "5. Consent and how to withdraw it",
         paragraphs: [
-          "Where required (including the EEA, UK, and other regions we configure), a UMP form is shown before ads are requested and before Firebase Analytics or Crashlytics are started. If you decline analytics or crash reporting, those SDKs are not initialized. If you decline ads personalization, we honour that choice in line with Google’s APIs; a non-personalized ad may still be shown on the Android free tier where allowed.",
-          "You can withdraw or change consent later: open the privacy or consent options in Rollbye (on Android, and anywhere we provide a link back to the UMP form), reset or limit the advertising ID in your Android system settings, or use the equivalent advertising or tracking controls on your device. Withdrawing consent does not affect data processed for a purchase you already made through Apple or Google, which remains necessary to honour that purchase.",
+          "Where required (including the EEA, UK, and other regions we configure), a UMP form is shown before ads are requested and before Firebase Analytics or Crashlytics are started. If you decline analytics or crash reporting, those SDKs are not initialized. If you decline ads personalization, we honour that choice in line with Google’s APIs; a non-personalized ad may still be shown in the free version where allowed. On iOS, if you decline the ATT prompt or later turn tracking off, AdMob does not receive the IDFA and only non-personalized ads are shown.",
+          "You can withdraw or change consent later: open Settings → Privacy options in Rollbye to reopen the UMP form, reset or delete the advertising ID in your Android system settings, or on iOS turn off “Allow Apps to Request to Track” or Rollbye’s tracking permission in Settings → Privacy & Security → Tracking. Withdrawing consent does not affect data processed for a purchase you already made through Apple or Google, which remains necessary to honour that purchase.",
         ],
       },
       {
@@ -128,7 +128,7 @@ export const privacyDocs: Record<LegalLocale, LegalDoc> = {
       {
         heading: "8. Children",
         paragraphs: [
-          "Rollbye is not directed at children under 13 (or the higher age required in your country) and is not submitted as a “designed for children” or Kids app. The Android free tier may show ads.",
+          "Rollbye is not directed at children under 13 (or the higher minimum age required in your country) and is not submitted as a “designed for children” or Kids app. We do not knowingly collect personal information from children. If you believe a child used the app in a way that sent data to Google (ads, analytics, or crash logs after consent), email support@boaappstudio.com and we will help delete what we or our processors can delete. The free version may show ads for adult users.",
         ],
       },
       {
@@ -161,7 +161,7 @@ export const privacyDocs: Record<LegalLocale, LegalDoc> = {
       {
         heading: "2. Uygulama ne yapar",
         paragraphs: [
-          "Rollbye, cihazınızda saklanan fotoğraf ve videoları ay ay incelemenize, tutmanıza veya Silme Kutusu’na almanıza ve isteğe bağlı olarak cihazda çalışan araçları (örneğin ekran görüntüleri, büyük videolar, benzer veya bulanık gruplar) kullanmanıza yardım eder. İsteğe bağlı Premium, App Store veya Google Play üzerinden satılır. Android ücretsiz katmanda ay sonu özetinde tek bir yerleşik reklam görünebilir.",
+          "Rollbye, cihazınızda saklanan fotoğraf ve videoları ay ay incelemenize, tutmanıza veya Silme Kutusu’na almanıza ve isteğe bağlı olarak cihazda çalışan araçları (örneğin ekran görüntüleri, büyük videolar, benzer veya bulanık gruplar) kullanmanıza yardım eder. İsteğe bağlı Premium, App Store veya Google Play üzerinden satılır. Android ve iOS ücretsiz sürümde ay sonu özetinde tek bir yerleşik reklam görünebilir.",
         ],
       },
       {
@@ -174,13 +174,13 @@ export const privacyDocs: Record<LegalLocale, LegalDoc> = {
       {
         heading: "4. Bizim ve ortaklarımızın işlediği veri",
         paragraphs: [
-          "Rollbye medyanızı yüklemez. Aşağıdaki kategoriler platforma, onayınıza ve satın alma veya Android ücretsiz katmanı kullanıp kullanmadığınıza göre işlenebilir.",
+          "Rollbye medyanızı yüklemez. Aşağıdaki kategoriler platforma, onayınıza ve satın alma veya reklamlı ücretsiz katmanı kullanıp kullanmadığınıza göre işlenebilir.",
         ],
         bullets: [
           "Firebase Analytics (Android ve iOS): uygulama kullanım olayları ve teknik kimlikler (uygulama örneği veya kurulum kimliği, uygulama sürümü, cihaz ve dil bilgisi gibi). Özellik kullanımını anlamak ve ürünü geliştirmek için kullanılır. Google Kullanıcı Mesajlaşma Platformu (UMP) formu gösterildiğinde, yalnızca onay verdikten sonra başlatılır.",
           "Firebase Crashlytics (Android ve iOS): arızaları teşhis etmek için çökme günlükleri, yığın izleri ve teknik kimlikler. UMP formu gösterildiğinde yalnızca onaydan sonra başlatılır.",
-          "Google AdMob ve reklam kimliği (yalnızca Android ücretsiz katman): ay sonu özetinde bir yerleşik reklam görünebilir. AdMob, Google’ın açıkladığı şekilde reklam kimliğini ve standart reklam verilerini işleyebilir. iOS sürümünde reklam SDK’sı yoktur.",
-          "UMP onayı (Android’de reklamlar ve formu gösterdiğimiz yerlerde Analytics ile Crashlytics’in başlaması için): seçimleriniz bu tercihlere uymamız için saklanır. Aşağıda anlatıldığı gibi daha sonra değiştirebilirsiniz.",
+          "Google AdMob ve reklam kimlikleri (Android ve iOS ücretsiz katman; Premium’da ve Huawei AppGallery sürümünde yok): ay sonu özetinde tek bir yerleşik reklam görünebilir. AdMob, Google’ın açıkladığı şekilde reklam kimliğini, reklam verilerini (gösterim ve etkileşimler gibi), cihaz ve uygulama bilgilerini, IP adresinden türetilen yaklaşık konumu ve tanılama verilerini işleyebilir. Google, politikalarına göre bu reklam verilerini reklam ortaklarıyla paylaşabilir. Android’de bu, reklam kimliğidir. iOS’ta AdMob cihazın reklam kimliğine (IDFA) yalnızca Apple’ın Uygulama İzleme Şeffaflığı (ATT) isteminde izlemeye izin verirseniz erişebilir; reddederseniz IDFA kullanılamaz ve yalnızca kişiselleştirilmemiş reklam gösterilir. iOS’ta App Store gizlilik etiketi, reklam verilerini ve cihaz kimliğini izleme amaçlı olarak listeler.",
+          "UMP onayı ve iOS ATT izni (UMP, Android ve iOS’ta reklamlar ve formu gösterdiğimiz yerlerde Analytics ile Crashlytics’in başlaması için gerekir; iOS’ta ATT istemi UMP’den ve kısa bir uygulama içi açıklamadan sonra, yalnızca bir kez gösterilir): seçimleriniz bu tercihlere uymamız için saklanır. Aşağıda anlatıldığı gibi daha sonra değiştirebilirsiniz.",
           "RevenueCat ve mağazalar: ödemeler Apple veya Google tarafından işlenir. RevenueCat, Premium’u açmak ve satın almaları geri yüklemek için anonim bir uygulama kullanıcı kimliği ile satın alma veya hak durumunu alır. Fotoğraf veya video almaz.",
           "Destek e-postası: bize yazarsanız, yanıtlamak için e-posta adresinizi ve iletinizin içeriğini işleriz. Destek postasını reklam için kullanmayız.",
           "Yerel bildirimler ve ayarlar: hatırlatma zamanlaması, dil, tema, Silme Kutusu kimlikleri ve benzer ilerleme cihazda kalır.",
@@ -189,8 +189,8 @@ export const privacyDocs: Record<LegalLocale, LegalDoc> = {
       {
         heading: "5. Onay ve onayın geri alınması",
         paragraphs: [
-          "Gerekli yerlerde (AEA, Birleşik Krallık ve yapılandırdığımız diğer bölgeler dahil) reklam istenmeden ve Firebase Analytics veya Crashlytics başlatılmadan önce bir UMP formu gösterilir. Analitik veya çökme bildirimini reddederseniz bu SDK’lar başlatılmaz. Reklam kişiselleştirmesini reddederseniz bu tercihe Google’ın API’lerine uygun şekilde uyarız; izin verilen hallerde Android ücretsiz katmanda kişiselleştirilmemiş bir reklam yine gösterilebilir.",
-          "Onayı daha sonra geri alabilir veya değiştirebilirsiniz: Rollbye içindeki gizlilik veya onay seçeneklerini açın (Android’de ve UMP formuna dönüş bağlantısı verdiğimiz her yerde), Android sistem ayarlarından reklam kimliğini sıfırlayın veya sınırlayın ya da cihazınızdaki eşdeğer reklam veya izleme denetimlerini kullanın. Onayı geri almak, Apple veya Google üzerinden yaptığınız mevcut bir satın alma için işlenen ve o satın almayı yerine getirmek için gerekli olan veriyi etkilemez.",
+          "Gerekli yerlerde (AEA, Birleşik Krallık ve yapılandırdığımız diğer bölgeler dahil) reklam istenmeden ve Firebase Analytics veya Crashlytics başlatılmadan önce bir UMP formu gösterilir. Analitik veya çökme bildirimini reddederseniz bu SDK’lar başlatılmaz. Reklam kişiselleştirmesini reddederseniz bu tercihe Google’ın API’lerine uygun şekilde uyarız; izin verilen hallerde ücretsiz sürümde kişiselleştirilmemiş bir reklam yine gösterilebilir. iOS’ta ATT istemini reddeder veya izlemeyi sonradan kapatırsanız AdMob IDFA’yı almaz ve yalnızca kişiselleştirilmemiş reklam gösterilir.",
+          "Onayı daha sonra geri alabilir veya değiştirebilirsiniz: UMP formunu yeniden açmak için Rollbye’da Ayarlar → Gizlilik seçenekleri’ni kullanın, Android sistem ayarlarından reklam kimliğini sıfırlayın veya silin ya da iOS’ta Ayarlar → Gizlilik ve Güvenlik → İzleme’den «Uygulamaların izleme isteğinde bulunmasına izin ver» seçeneğini veya Rollbye’ın izleme iznini kapatın. Onayı geri almak, Apple veya Google üzerinden yaptığınız mevcut bir satın alma için işlenen ve o satın almayı yerine getirmek için gerekli olan veriyi etkilemez.",
         ],
       },
       {
@@ -208,7 +208,7 @@ export const privacyDocs: Record<LegalLocale, LegalDoc> = {
       {
         heading: "8. Çocuklar",
         paragraphs: [
-          "Rollbye 13 yaşından (veya ülkenizdeki daha yüksek yasal yaştan) küçük çocuklara yönelik değildir ve «çocuklar için tasarlandı» veya Kids uygulaması olarak gönderilmez. Android ücretsiz katmanda reklam bulunabilir.",
+          "Rollbye 13 yaşından (veya ülkenizdeki daha yüksek asgari yaştan) küçük çocuklara yönelik değildir ve «çocuklar için tasarlandı» veya Kids uygulaması olarak gönderilmez. Bilerek çocuklardan kişisel bilgi toplamayız. Bir çocuğun uygulamayı, onay sonrası Google’a veri gidecek şekilde (reklam, analitik veya çökme günlükleri) kullandığını düşünüyorsanız support@boaappstudio.com adresine yazın; bizim veya işleyenlerimizin silebildiği veriyi silmenize yardımcı oluruz. Ücretsiz sürüm yetişkin kullanıcılar için reklam gösterebilir.",
         ],
       },
       {
@@ -256,7 +256,7 @@ export const termsDocs: Record<LegalLocale, LegalDoc> = {
       {
         heading: "4. Free tier and ads",
         paragraphs: [
-          "The core swipe-to-clean loop is free. Some smart tools are limited or locked behind Premium. The Android free tier may show one native ad on the month-summary screen, subject to UMP consent where required. Premium removes ads. iOS builds do not include an ads SDK.",
+          "The core swipe-to-clean loop is free. Some smart tools are limited or locked behind Premium. The free version on Android and iOS may show one native ad on the month-summary screen, subject to UMP consent where required and, on iOS, to your App Tracking Transparency choice for personalised ads. Premium removes ads. The Huawei AppGallery build has no ads.",
         ],
       },
       {
@@ -314,7 +314,7 @@ export const termsDocs: Record<LegalLocale, LegalDoc> = {
       {
         heading: "4. Ücretsiz katman ve reklamlar",
         paragraphs: [
-          "Temel kaydır-sil döngüsü ücretsizdir. Bazı akıllı araçlar sınırlıdır veya Premium ile açılır. Android ücretsiz katmanda, gerekli yerlerde UMP onayı alındıktan sonra, ay sonu özetinde bir yerleşik reklam görünebilir. Premium reklamları kaldırır. iOS sürümünde reklam SDK’sı yoktur.",
+          "Temel kaydır-sil döngüsü ücretsizdir. Bazı akıllı araçlar sınırlıdır veya Premium ile açılır. Android ve iOS ücretsiz sürümde, gerekli yerlerde UMP onayı alındıktan sonra (iOS’ta kişiselleştirilmiş reklam için ayrıca ATT tercihinize göre), ay sonu özetinde bir yerleşik reklam görünebilir. Premium reklamları kaldırır. Huawei AppGallery sürümünde reklam yoktur.",
         ],
       },
       {
@@ -363,7 +363,7 @@ export const deleteDataDocs: Record<LegalLocale, LegalDoc> = {
       {
         heading: "2. In-app reset",
         paragraphs: [
-          "Use the in-app reset or clear-data control (when available in Settings) to remove Rollbye’s local state: month progress, Delete Box identifiers, reminder settings, and similar preferences. This does not delete the photos in your system gallery, and it does not cancel a store subscription.",
+          "In Rollbye, open Settings → Reset app data. Confirm to remove Rollbye’s local state on that device: month progress, Delete Box identifiers, analysis cache, reminder settings, and similar preferences. This does not delete the photos in your system gallery, and it does not cancel a store subscription.",
         ],
       },
       {
@@ -389,7 +389,7 @@ export const deleteDataDocs: Record<LegalLocale, LegalDoc> = {
       {
         heading: "6. Advertising and purchases",
         paragraphs: [
-          "You can reset the advertising ID in Android system settings and, where shown, reopen the privacy options in the app. To request deletion of advertising identifiers associated with Rollbye that Google or we can actually delete, use the email address above.",
+          "You can reset or delete the advertising ID in Android system settings, turn off tracking for Rollbye on iOS in Settings → Privacy & Security → Tracking (the IDFA is then no longer shared with AdMob), and reopen Settings → Privacy options in the app. To request deletion of advertising identifiers associated with Rollbye that Google or we can actually delete, use the email address above.",
           "Subscriptions and lifetime purchases are held by Apple or Google. Cancel a subscription in your store account. We cannot refund store charges from this page; use the store’s refund process. If you want the anonymous RevenueCat entitlement identifier cleared where RevenueCat allows it, include that in your email.",
         ],
       },
@@ -411,7 +411,7 @@ export const deleteDataDocs: Record<LegalLocale, LegalDoc> = {
       {
         heading: "2. Uygulama içi sıfırlama",
         paragraphs: [
-          "Rollbye’ın yerel durumunu (ay ilerlemesi, Silme Kutusu kimlikleri, hatırlatma ayarları ve benzer tercihler) kaldırmak için Ayarlar’daki sıfırlama veya verileri temizleme denetimini (sunulduğunda) kullanın. Bu, sistem galerinizdeki fotoğrafları silmez ve mağaza aboneliğini iptal etmez.",
+          "Rollbye’da Ayarlar → Uygulama verilerini sıfırla’yı açın. Onayladığınızda o cihazdaki Rollbye yerel durumu kaldırılır: ay ilerlemesi, Silme Kutusu kimlikleri, analiz önbelleği, hatırlatma ayarları ve benzer tercihler. Bu, sistem galerinizdeki fotoğrafları silmez ve mağaza aboneliğini iptal etmez.",
         ],
       },
       {
@@ -437,7 +437,7 @@ export const deleteDataDocs: Record<LegalLocale, LegalDoc> = {
       {
         heading: "6. Reklam ve satın almalar",
         paragraphs: [
-          "Android sistem ayarlarından reklam kimliğini sıfırlayabilir, uygulamada varsa gizlilik seçeneklerini yeniden açabilirsiniz. Rollbye ile bağlı olup da Google’ın veya bizim gerçekten silebildiğimiz reklam kimlikleri için yukarıdaki e-posta adresini kullanın.",
+          "Android sistem ayarlarından reklam kimliğini sıfırlayabilir veya silebilir, iOS’ta Ayarlar → Gizlilik ve Güvenlik → İzleme’den Rollbye için izlemeyi kapatabilir (bu durumda IDFA artık AdMob ile paylaşılmaz) ve uygulamada Ayarlar → Gizlilik seçenekleri’ni yeniden açabilirsiniz. Rollbye ile bağlı olup da Google’ın veya bizim gerçekten silebildiğimiz reklam kimlikleri için yukarıdaki e-posta adresini kullanın.",
           "Abonelik ve ömür boyu haklar Apple veya Google’dadır. Aboneliği mağaza hesabınızdan iptal edin. Bu sayfadan mağaza ücreti iade edilmez; iade için mağaza sürecini kullanın. RevenueCat’in izin verdiği ölçüde anonim hak kimliğinin silinmesini istiyorsanız bunu e-postanıza ekleyin.",
         ],
       },
@@ -517,7 +517,7 @@ export const appPageCopy: Record<LegalLocale, AppPageCopy> = {
     title: "Rollbye",
     tagline: "Swipe Photo Cleaner",
     description:
-      "Review your camera roll month by month, keep or add items to a Delete Box, and free space with on-device tools. Your photos never leave your phone. Optional Premium and, on the Android free tier, a single ad on the month-summary screen.",
+      "Review your camera roll month by month, keep or add items to a Delete Box, and free space with on-device tools. Your photos never leave your phone. Optional Premium and, in the free version, a single ad on the month-summary screen.",
     featuresHeading: "What you can do",
     features: [
       "Unlimited swipe to keep or clean, with a Delete Box and undo",
@@ -534,7 +534,7 @@ export const appPageCopy: Record<LegalLocale, AppPageCopy> = {
     title: "Rollbye",
     tagline: "Galeri Temizleyici",
     description:
-      "Kamera rulosunu ay ay inceleyin, tutun veya Silme Kutusu’na ekleyin ve cihazda çalışan araçlarla yer açın. Fotoğraflarınız telefondan çıkmaz. İsteğe bağlı Premium ve Android ücretsiz katmanda ay sonu özetinde tek bir reklam.",
+      "Kamera rulosunu ay ay inceleyin, tutun veya Silme Kutusu’na ekleyin ve cihazda çalışan araçlarla yer açın. Fotoğraflarınız telefondan çıkmaz. İsteğe bağlı Premium ve ücretsiz sürümde ay sonu özetinde tek bir reklam.",
     featuresHeading: "Neler yapabilirsiniz",
     features: [
       "Sınırsız kaydırarak tutma veya temizleme, Silme Kutusu ve geri alma",
