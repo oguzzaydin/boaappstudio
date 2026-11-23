@@ -99,7 +99,7 @@ export const privacyDocs: Record<LegalLocale, LegalDoc> = {
         bullets: [
           "Firebase Analytics (Android and iOS): app usage events and technical identifiers (such as an app-instance or installation identifier, app version, and device or locale information). Used to understand feature use and improve the product. Initialized only after you grant consent in the Google User Messaging Platform (UMP) form, where that form is shown.",
           "Firebase Crashlytics (Android and iOS): crash logs, stack traces, and technical identifiers needed to diagnose failures. Initialized only after UMP consent, where that form is shown.",
-          "Google AdMob and advertising identifiers (free tier on Android and iOS; not in Premium or the Huawei AppGallery build): a single native ad may appear on the month-summary screen. AdMob may process the advertising identifier, advertising data (such as ad impressions and interactions), device and app information, approximate location derived from your IP address, and diagnostics, as described by Google. On Android this is the advertising ID. On iOS, AdMob may access the device’s advertising identifier (IDFA) only if you allow tracking in Apple’s App Tracking Transparency (ATT) prompt; if you decline, the IDFA is not available and only non-personalised ads are shown. On iOS the App Store privacy label lists advertising data and the device identifier as used for tracking.",
+          "Google AdMob and advertising identifiers (free tier on Android and iOS; not in Premium or the Huawei AppGallery build): a single native ad may appear on the month-summary screen. AdMob may process the advertising identifier, advertising data (such as ad impressions and interactions), device and app information, approximate location derived from your IP address, and diagnostics, as described by Google. Google may share this advertising data with its advertising partners under Google’s policies. On Android this is the advertising ID. On iOS, AdMob may access the device’s advertising identifier (IDFA) only if you allow tracking in Apple’s App Tracking Transparency (ATT) prompt; if you decline, the IDFA is not available and only non-personalised ads are shown. On iOS the App Store privacy label lists advertising data and the device identifier as used for tracking.",
           "UMP consent and iOS ATT permission (UMP is required for ads on Android and iOS and for starting Analytics and Crashlytics where we show the form; on iOS the ATT prompt is shown after UMP and a short in-app explanation, and only once): your choices are stored so we can honour them. You can change them later as described below.",
           "RevenueCat and the app stores: payments are processed by Apple or Google. RevenueCat receives an anonymous app user identifier and purchase or entitlement status so we can unlock Premium and restore purchases. RevenueCat does not receive your photos or videos.",
           "Support email: if you write to us, we process your email address and the content of your message in order to reply. We do not use support mail for advertising.",
@@ -128,7 +128,7 @@ export const privacyDocs: Record<LegalLocale, LegalDoc> = {
       {
         heading: "8. Children",
         paragraphs: [
-          "Rollbye is not directed at children under 13 (or the higher age required in your country) and is not submitted as a “designed for children” or Kids app. The free version on Android and iOS may show ads.",
+          "Rollbye is not directed at children under 13 (or the higher minimum age required in your country) and is not submitted as a “designed for children” or Kids app. We do not knowingly collect personal information from children. If you believe a child used the app in a way that sent data to Google (ads, analytics, or crash logs after consent), email support@boaappstudio.com and we will help delete what we or our processors can delete. The free version may show ads for adult users.",
         ],
       },
       {
@@ -179,7 +179,7 @@ export const privacyDocs: Record<LegalLocale, LegalDoc> = {
         bullets: [
           "Firebase Analytics (Android ve iOS): uygulama kullanım olayları ve teknik kimlikler (uygulama örneği veya kurulum kimliği, uygulama sürümü, cihaz ve dil bilgisi gibi). Özellik kullanımını anlamak ve ürünü geliştirmek için kullanılır. Google Kullanıcı Mesajlaşma Platformu (UMP) formu gösterildiğinde, yalnızca onay verdikten sonra başlatılır.",
           "Firebase Crashlytics (Android ve iOS): arızaları teşhis etmek için çökme günlükleri, yığın izleri ve teknik kimlikler. UMP formu gösterildiğinde yalnızca onaydan sonra başlatılır.",
-          "Google AdMob ve reklam kimlikleri (Android ve iOS ücretsiz katman; Premium’da ve Huawei AppGallery sürümünde yok): ay sonu özetinde tek bir yerleşik reklam görünebilir. AdMob, Google’ın açıkladığı şekilde reklam kimliğini, reklam verilerini (gösterim ve etkileşimler gibi), cihaz ve uygulama bilgilerini, IP adresinden türetilen yaklaşık konumu ve tanılama verilerini işleyebilir. Android’de bu, reklam kimliğidir. iOS’ta AdMob cihazın reklam kimliğine (IDFA) yalnızca Apple’ın Uygulama İzleme Şeffaflığı (ATT) isteminde izlemeye izin verirseniz erişebilir; reddederseniz IDFA kullanılamaz ve yalnızca kişiselleştirilmemiş reklam gösterilir. iOS’ta App Store gizlilik etiketi, reklam verilerini ve cihaz kimliğini izleme amaçlı olarak listeler.",
+          "Google AdMob ve reklam kimlikleri (Android ve iOS ücretsiz katman; Premium’da ve Huawei AppGallery sürümünde yok): ay sonu özetinde tek bir yerleşik reklam görünebilir. AdMob, Google’ın açıkladığı şekilde reklam kimliğini, reklam verilerini (gösterim ve etkileşimler gibi), cihaz ve uygulama bilgilerini, IP adresinden türetilen yaklaşık konumu ve tanılama verilerini işleyebilir. Google, politikalarına göre bu reklam verilerini reklam ortaklarıyla paylaşabilir. Android’de bu, reklam kimliğidir. iOS’ta AdMob cihazın reklam kimliğine (IDFA) yalnızca Apple’ın Uygulama İzleme Şeffaflığı (ATT) isteminde izlemeye izin verirseniz erişebilir; reddederseniz IDFA kullanılamaz ve yalnızca kişiselleştirilmemiş reklam gösterilir. iOS’ta App Store gizlilik etiketi, reklam verilerini ve cihaz kimliğini izleme amaçlı olarak listeler.",
           "UMP onayı ve iOS ATT izni (UMP, Android ve iOS’ta reklamlar ve formu gösterdiğimiz yerlerde Analytics ile Crashlytics’in başlaması için gerekir; iOS’ta ATT istemi UMP’den ve kısa bir uygulama içi açıklamadan sonra, yalnızca bir kez gösterilir): seçimleriniz bu tercihlere uymamız için saklanır. Aşağıda anlatıldığı gibi daha sonra değiştirebilirsiniz.",
           "RevenueCat ve mağazalar: ödemeler Apple veya Google tarafından işlenir. RevenueCat, Premium’u açmak ve satın almaları geri yüklemek için anonim bir uygulama kullanıcı kimliği ile satın alma veya hak durumunu alır. Fotoğraf veya video almaz.",
           "Destek e-postası: bize yazarsanız, yanıtlamak için e-posta adresinizi ve iletinizin içeriğini işleriz. Destek postasını reklam için kullanmayız.",
@@ -208,7 +208,7 @@ export const privacyDocs: Record<LegalLocale, LegalDoc> = {
       {
         heading: "8. Çocuklar",
         paragraphs: [
-          "Rollbye 13 yaşından (veya ülkenizdeki daha yüksek yasal yaştan) küçük çocuklara yönelik değildir ve «çocuklar için tasarlandı» veya Kids uygulaması olarak gönderilmez. Android ve iOS ücretsiz sürümde reklam bulunabilir.",
+          "Rollbye 13 yaşından (veya ülkenizdeki daha yüksek asgari yaştan) küçük çocuklara yönelik değildir ve «çocuklar için tasarlandı» veya Kids uygulaması olarak gönderilmez. Bilerek çocuklardan kişisel bilgi toplamayız. Bir çocuğun uygulamayı, onay sonrası Google’a veri gidecek şekilde (reklam, analitik veya çökme günlükleri) kullandığını düşünüyorsanız support@boaappstudio.com adresine yazın; bizim veya işleyenlerimizin silebildiği veriyi silmenize yardımcı oluruz. Ücretsiz sürüm yetişkin kullanıcılar için reklam gösterebilir.",
         ],
       },
       {
@@ -363,7 +363,7 @@ export const deleteDataDocs: Record<LegalLocale, LegalDoc> = {
       {
         heading: "2. In-app reset",
         paragraphs: [
-          "Use the in-app reset or clear-data control (when available in Settings) to remove Rollbye’s local state: month progress, Delete Box identifiers, reminder settings, and similar preferences. This does not delete the photos in your system gallery, and it does not cancel a store subscription.",
+          "In Rollbye, open Settings → Reset app data. Confirm to remove Rollbye’s local state on that device: month progress, Delete Box identifiers, analysis cache, reminder settings, and similar preferences. This does not delete the photos in your system gallery, and it does not cancel a store subscription.",
         ],
       },
       {
@@ -411,7 +411,7 @@ export const deleteDataDocs: Record<LegalLocale, LegalDoc> = {
       {
         heading: "2. Uygulama içi sıfırlama",
         paragraphs: [
-          "Rollbye’ın yerel durumunu (ay ilerlemesi, Silme Kutusu kimlikleri, hatırlatma ayarları ve benzer tercihler) kaldırmak için Ayarlar’daki sıfırlama veya verileri temizleme denetimini (sunulduğunda) kullanın. Bu, sistem galerinizdeki fotoğrafları silmez ve mağaza aboneliğini iptal etmez.",
+          "Rollbye’da Ayarlar → Uygulama verilerini sıfırla’yı açın. Onayladığınızda o cihazdaki Rollbye yerel durumu kaldırılır: ay ilerlemesi, Silme Kutusu kimlikleri, analiz önbelleği, hatırlatma ayarları ve benzer tercihler. Bu, sistem galerinizdeki fotoğrafları silmez ve mağaza aboneliğini iptal etmez.",
         ],
       },
       {

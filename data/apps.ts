@@ -247,11 +247,11 @@ export const apps: AppData[] = [
       {
         name: "Google AdMob",
         description:
-          "In the free version on Android and iOS we use Google AdMob to display a single native ad on the month-summary screen after UMP consent. AdMob may use an advertising identifier on its own side: the Android advertising ID, or on iOS the IDFA only if you allow tracking in the ATT prompt. AdMob may also process advertising data, device and app information, approximate location derived from your IP address, and diagnostics."
+          "In the free version on Android and iOS we use Google AdMob to display a single native ad on the month-summary screen after UMP consent. AdMob may use an advertising identifier on its own side: the Android advertising ID, or on iOS the IDFA only if you allow tracking in the ATT prompt. AdMob may also process advertising data, device and app information, approximate location derived from your IP address, and diagnostics. Google may share this advertising data with its advertising partners as described in Google’s privacy and advertising policies."
       }
     ],
     childrenPrivacyNote:
-      "As described above, the free version on Android and iOS may display a single advertisement through Google AdMob after consent, and the app uses Google Firebase Analytics and Firebase Crashlytics for usage statistics and crash logs after UMP consent. We do not sell, rent, or trade your personal data to third parties.",
+      "Rollbye is not directed at children under 13 (or the higher minimum age required in your country) and is not a “designed for children” or Kids app. We do not knowingly collect personal information from children. If you believe a child has used the app in a way that sent data to Google (ads, analytics, or crash logs after consent), contact us and we will help delete what we or our processors can delete. The free version may show ads and, after UMP consent, analytics or crash logs for adult users; we do not sell, rent, or trade personal data.",
     privacyHighlights: [
       {
         icon: "CheckCircle",
@@ -286,7 +286,7 @@ export const apps: AppData[] = [
         icon: "Ad",
         title: "Advertising Data",
         description:
-          "In the free version, Google AdMob may use a device advertising identifier after consent — on Android the advertising ID, on iOS the IDFA only if you allow tracking in the ATT prompt (otherwise non-personalised ads). You can turn tracking off any time in iOS Settings → Privacy & Security → Tracking. Premium removes ads."
+          "In the free version, Google AdMob may use a device advertising identifier after consent — on Android the advertising ID, on iOS the IDFA only if you allow tracking in the ATT prompt (otherwise non-personalised ads). AdMob may also process approximate location derived from your IP address, device and app information, and advertising diagnostics, and Google may share advertising data with its advertising partners. You can turn tracking off any time in iOS Settings → Privacy & Security → Tracking. Premium removes ads."
       },
       {
         icon: "BarChart",

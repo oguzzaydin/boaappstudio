@@ -343,23 +343,24 @@ export default function AppPrivacyPolicy({
                                 <h3 className="text-xl font-bold text-slate-900">{t.childrensPrivacy}</h3>
                             </div>
                             <div className="space-y-4 text-slate-600 leading-relaxed">
-                                <p>
-                                    {t.noAccount(app.name)}
-                                    {noRealCalls ? t.noRealCalls : ""}
-                                </p>
-                                <p>
-                                    {app.childrenPrivacyNote ? (
-                                        app.childrenPrivacyNote
-                                    ) : (
-                                        <>
+                                {app.childrenPrivacyNote ? (
+                                    <p>{app.childrenPrivacyNote}</p>
+                                ) : (
+                                    <>
+                                        <p>
+                                            {t.noAccount(app.name)}
+                                            {noRealCalls ? t.noRealCalls : ""}
+                                        </p>
+                                        <p>
                                             {t.childrenDefaultAdmob}
-                                            {app.analyticsServices && app.analyticsServices.length > 0
+                                            {app.analyticsServices &&
+                                            app.analyticsServices.length > 0
                                                 ? t.childrenAnalytics
                                                 : t.childrenCrash}
                                             {t.childrenSell}
-                                        </>
-                                    )}
-                                </p>
+                                        </p>
+                                    </>
+                                )}
                                 <p>
                                     {t.childrenContact}{" "}
                                     <a href="mailto:contact@boaappstudio.com" className="font-bold text-blue-600 hover:underline">

@@ -44,11 +44,11 @@ export const rollbyeTr: Partial<AppData> = {
     {
       name: "Google AdMob",
       description:
-        "Android ve iOS ücretsiz sürümde, UMP onayından sonra ay özeti ekranında tek bir native reklam göstermek için Google AdMob kullanırız. AdMob kendi tarafında bir reklam tanımlayıcısı kullanabilir: Android reklam kimliği veya iOS'ta yalnızca ATT isteminde izlemeye izin verirsen IDFA. AdMob ayrıca reklam verilerini, cihaz ve uygulama bilgilerini, IP adresinden türetilen yaklaşık konumu ve tanılama verilerini işleyebilir.",
+        "Android ve iOS ücretsiz sürümde, UMP onayından sonra ay özeti ekranında tek bir native reklam göstermek için Google AdMob kullanırız. AdMob kendi tarafında bir reklam tanımlayıcısı kullanabilir: Android reklam kimliği veya iOS'ta yalnızca ATT isteminde izlemeye izin verirsen IDFA. AdMob ayrıca reklam verilerini, cihaz ve uygulama bilgilerini, IP adresinden türetilen yaklaşık konumu ve tanılama verilerini işleyebilir. Google, Google’ın gizlilik ve reklam politikalarında açıklandığı gibi bu reklam verilerini reklam ortaklarıyla paylaşabilir.",
     },
   ],
   childrenPrivacyNote:
-    "Yukarıda açıklandığı gibi, Android ve iOS ücretsiz sürüm onay sonrası Google AdMob üzerinden tek bir reklam gösterebilir ve uygulama UMP onayından sonra kullanım istatistikleri ve kilitlenme günlükleri için Google Firebase Analytics ile Firebase Crashlytics kullanır. Kişisel verilerini üçüncü taraflara satmaz, kiralamaz veya takas etmeyiz.",
+    "Rollbye 13 yaşın altındaki çocuklara (veya ülkenizde gereken daha yüksek asgari yaşa) yönelik değildir ve «çocuklar için tasarlandı» veya Kids uygulaması değildir. Bilerek çocuklardan kişisel bilgi toplamayız. Bir çocuğun uygulamayı, onay sonrası Google’a veri gidecek şekilde (reklam, analitik veya çökme günlükleri) kullandığını düşünüyorsanız bize yazın; bizim veya işleyenlerimizin silebildiği veriyi silmenize yardımcı oluruz. Ücretsiz sürüm yetişkin kullanıcılar için reklam gösterebilir ve UMP onayından sonra analitik veya çökme günlükleri toplayabilir; kişisel verileri satmaz, kiralamaz veya takas etmeyiz.",
   privacyHighlights: [
     {
       icon: "CheckCircle",
@@ -83,7 +83,7 @@ export const rollbyeTr: Partial<AppData> = {
       icon: "Ad",
       title: "Reklam verileri",
       description:
-        "Ücretsiz sürümde Google AdMob, onay sonrası cihaz reklam tanımlayıcısını kullanabilir: Android'de reklam kimliği, iOS'ta yalnızca ATT isteminde izlemeye izin verirsen IDFA (aksi halde kişiselleştirilmemiş reklam). İzlemeyi istediğin zaman iOS Ayarlar → Gizlilik ve Güvenlik → İzleme'den kapatabilirsin. Premium reklamları kaldırır.",
+        "Ücretsiz sürümde Google AdMob, onay sonrası cihaz reklam tanımlayıcısını kullanabilir: Android'de reklam kimliği, iOS'ta yalnızca ATT isteminde izlemeye izin verirsen IDFA (aksi halde kişiselleştirilmemiş reklam). AdMob ayrıca IP adresinden türetilen yaklaşık konumu, cihaz ve uygulama bilgilerini ve reklam tanılamasını işleyebilir; Google reklam verilerini reklam ortaklarıyla paylaşabilir. İzlemeyi istediğin zaman iOS Ayarlar → Gizlilik ve Güvenlik → İzleme'den kapatabilirsin. Premium reklamları kaldırır.",
     },
     {
       icon: "BarChart",
